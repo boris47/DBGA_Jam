@@ -61,6 +61,13 @@ MonoBehaviour:
         m_Target: 0
         speed: 2
         m_Value: 0
+    - categoryName: Uncategorized
+      itemNames:
+      - ~Element Name~
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
     categoryNames:
     - ~Custom Name~
     - Example 1 - SimpleScene
@@ -68,6 +75,7 @@ MonoBehaviour:
     - Example 3 - Buttons
     - Example 4 - Simple UI
     - MyCategory
+    - Uncategorized
   DatabaseUIButtons:
     categories:
     - categoryName: Example 1 - SimpleScene
@@ -108,13 +116,22 @@ MonoBehaviour:
         m_Target: 0
         speed: 2
         m_Value: 0
+    - categoryName: Uncategorized
+      itemNames:
+      - ~Button Name~
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
     categoryNames:
     - ~Custom Name~
     - Example 1 - SimpleScene
     - Example 2 - OrientationManager
     - Example 3 - Buttons
     - Example 4 - Simple UI
-  DatabaseUICanvases: []
+    - Uncategorized
+  DatabaseUICanvases:
+  - MasterCanvas
   DatabaseUISounds:
     sounds:
     - {fileID: 11400000, guid: 59de0091c9523d146a71bf3e2f187753, type: 2}
