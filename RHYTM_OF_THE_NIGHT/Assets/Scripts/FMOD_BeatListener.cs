@@ -1,104 +1,111 @@
-﻿//--------------------------------------------------------------------
-//
-// This is a Unity behaviour script that demonstrates how to use
-// timeline markers in your game code. 
-//
-// Timeline markers can be implicit - such as beats and bars. Or they 
-// can be explicity placed by sound designers, in which case they have 
-// a sound designer specified name attached to them.
-//
-// Timeline markers can be useful for syncing game events to sound
-// events.
-//
-// The script starts a piece of music and then displays on the screen
-// the current bar and the last marker encountered.
-//
-// This document assumes familiarity with Unity scripting. See
-// https://unity3d.com/learn/tutorials/topics/scripting for resources
-// on learning Unity scripting. 
-//
-//--------------------------------------------------------------------
-
+﻿
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
+[Serializable]
+public class FMOD_BeatListener_OnBeat      : UnityEngine.Events.UnityEvent<int> { }
+
+[Serializable]
+public class FMOD_BeatListener_OnMark      : UnityEngine.Events.UnityEvent<string> { }
+
 class FMOD_BeatListener : MonoBehaviour
 {
-	// Variables that are modified in the callback need to be part of a seperate class.
-	// This class needs to be 'blittable' otherwise it can't be pinned in memory.
-	[StructLayout(LayoutKind.Sequential)]
-	class TimelineInfo
+
+	[ SerializeField ]
+	private	string							m_Event			= "";
+
+	[ SerializeField ]
+	private	FMOD_BeatListener_OnBeat		m_OnBeat		= null;
+
+	[ SerializeField ]
+	private	FMOD_BeatListener_OnMark		m_OnMark		= null;
+
+	static	int								m_BeatCount		= -1;
+	static	bool							m_OnBeatToCall	= false;
+	static	string							m_MarkName		= "";
+	static	bool							m_OnMarkToCall	= false;
+
+	private	FMOD.Studio.EventInstance		m_MusicInstance;
+
+
+	private	void	Start()
 	{
-		public int currentMusicBar = 0;
-		public FMOD.StringWrapper lastMarker = new FMOD.StringWrapper();
-	}
-
-	TimelineInfo timelineInfo;
-	GCHandle timelineHandle;
-
-	FMOD.Studio.EVENT_CALLBACK beatCallback;
-	FMOD.Studio.EventInstance musicInstance;
-
-	void Start()
-	{
-		timelineInfo = new TimelineInfo();
+		if ( m_Event == null || m_Event.Length == 0 )
+		{
+			Debug.Log( "FMOD_BeatListener:.Start: You must set an event name !!" );
+			enabled = false;
+			return;
+		}
 
 		// Explicitly create the delegate object and assign it to a member so it doesn't get freed
 		// by the garbage collected while it's being used
-//		beatCallback = new FMOD.Studio.EVENT_CALLBACK(BeatEventCallback);
+		FMOD.Studio.EVENT_CALLBACK beatCallback = new FMOD.Studio.EVENT_CALLBACK( BeatEventCallback );
 
-		beatCallback = new FMOD.Studio.EVENT_CALLBACK( BeatEventCallback );
+		m_MusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + m_Event );
 
-		musicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/testBeat");
-
-		// Pin the class that will store the data modified during the callback
-//		timelineHandle = GCHandle.Alloc(timelineInfo, GCHandleType.Pinned);
-		// Pass the object through the userdata of the instance
-//		musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
-
-		musicInstance.setCallback(beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
-		musicInstance.start();
+		m_MusicInstance.setCallback(beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
+		m_MusicInstance.start();
 	}
 
-	void OnDestroy()
+
+	private void Update()
 	{
-		musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-		musicInstance.release();
-//		timelineHandle.Free();
+		if ( m_OnBeatToCall == true )
+		{
+			if ( m_OnBeat != null && m_OnBeat.GetPersistentEventCount() > 0 )
+				m_OnBeat.Invoke( m_BeatCount );
+
+			m_OnBeatToCall = false;
+		}
+
+		if ( m_OnMarkToCall == true )
+		{
+			if ( m_OnMark != null && m_OnMark.GetPersistentEventCount() > 0 )
+				m_OnMark.Invoke( m_MarkName );
+
+			m_OnMarkToCall = false;
+		}
 	}
 
-	void OnGUI()
+
+	public	void	Play()
 	{
-		GUILayout.Box(String.Format("Current Bar = {0}, Last Marker = {1}", timelineInfo.currentMusicBar, (string)timelineInfo.lastMarker));
+		m_MusicInstance.stop( FMOD.Studio.STOP_MODE.IMMEDIATE );
+		m_MusicInstance.start();
 	}
+
+
+	public	void	Stop()
+	{
+		m_MusicInstance.stop( FMOD.Studio.STOP_MODE.IMMEDIATE );
+	}
+
+
+	private	void	OnDestroy()
+	{
+		m_MusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		m_MusicInstance.release();
+	}
+
 
 	[AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]
-	static FMOD.RESULT BeatEventCallback( FMOD.Studio.EVENT_CALLBACK_TYPE type, FMOD.Studio.EventInstance eventInstance, IntPtr parameters )
+	private static	FMOD.RESULT	BeatEventCallback( FMOD.Studio.EVENT_CALLBACK_TYPE type, FMOD.Studio.EventInstance eventInstance, IntPtr parameters )
 	{
-		// Recreate the event instance object
-		FMOD.Studio.EventInstance instance = new FMOD.Studio.EventInstance();
-
-		// Retrieve the user data
-		IntPtr timelineInfoPtr;
-		instance.getUserData(out timelineInfoPtr);
-
-		// Get the object to store beat and marker details
-		GCHandle timelineHandle = GCHandle.FromIntPtr(timelineInfoPtr);
-		TimelineInfo timelineInfo = (TimelineInfo)timelineHandle.Target;
-
 		switch (type)
 		{
 			case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
 				{
-					var parameter = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure( parameters, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
-					timelineInfo.currentMusicBar = parameter.beat;
+					FMOD.Studio.TIMELINE_BEAT_PROPERTIES parameter = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure( parameters, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES) );
+					m_BeatCount	= parameter.beat;
+					m_OnBeatToCall = true;
 				}
 				break;
 			case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER:
 				{
-					var parameter = (FMOD.Studio.TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure( parameters, typeof(FMOD.Studio.TIMELINE_MARKER_PROPERTIES));
-					timelineInfo.lastMarker = parameter.name;
+					FMOD.Studio.TIMELINE_MARKER_PROPERTIES parameter = (FMOD.Studio.TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure( parameters, typeof(FMOD.Studio.TIMELINE_MARKER_PROPERTIES) );
+					m_MarkName = parameter.name;
+					m_OnMarkToCall = true;
 				}
 				break;
 		}
