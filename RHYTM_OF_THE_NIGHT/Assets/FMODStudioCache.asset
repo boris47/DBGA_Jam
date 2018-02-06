@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 114485412902789118}
   MasterBankRef: {fileID: 114803351786461106}
   StringsBankRef: {fileID: 114767655295876282}
-  stringsBankWriteTime: 636535308453528205
+  stringsBankWriteTime: 636535391142967388
   cacheVersion: 2
 --- !u!114 &114238321978097756
 MonoBehaviour:
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\AudioBanks\Master Bank.strings.bank
-  lastModified: 636535308453528205
+  lastModified: 636535391142967388
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: C:\Users\dbga_38\Documents\DBGA_Jam\RHYTM_OF_THE_NIGHT\Assets\AudioBanks\Master
     Bank.bank
-  lastModified: 636535308453418205
+  lastModified: 636535391142947386
   LoadResult: 0
   FileSizes:
   - Name: 

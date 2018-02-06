@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 public class MenuUIManager : MonoBehaviour 
 {
 	public GameObject mainMenu;
-	public GameObject volumeSlider;
 	public GameObject videoPlayer;
 	public GameObject exitGameChoice; 
+
 	void Start () 
 	{
 		mainMenu.SetActive (true);
 		videoPlayer.SetActive (false);
-		volumeSlider.SetActive (false);
 		exitGameChoice.SetActive (false);
 	}
 
@@ -21,7 +20,6 @@ public class MenuUIManager : MonoBehaviour
 	{
 		mainMenu.SetActive (true);
 		videoPlayer.SetActive (false);
-		volumeSlider.SetActive (false);
 		exitGameChoice.SetActive (false);
 	}
 
@@ -35,19 +33,10 @@ public class MenuUIManager : MonoBehaviour
 		Application.Quit();
 	}
 
-	public void VolumeOption ()
-	{
-		mainMenu.SetActive (false);
-		videoPlayer.SetActive (false);
-		volumeSlider.SetActive (true);
-		exitGameChoice.SetActive (false);
-	}
-
 	public void Tutorial ()
 	{
 		mainMenu.SetActive (false);
 		videoPlayer.SetActive (true);
-		volumeSlider.SetActive (false);
 		exitGameChoice.SetActive (false);
 	}
 
@@ -55,7 +44,6 @@ public class MenuUIManager : MonoBehaviour
 	{
 		mainMenu.SetActive (false);
 		videoPlayer.SetActive (false);
-		volumeSlider.SetActive (false);
 		exitGameChoice.SetActive (true);
 	}
 }
