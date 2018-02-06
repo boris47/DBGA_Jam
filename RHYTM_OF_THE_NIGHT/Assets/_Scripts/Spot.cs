@@ -52,4 +52,5 @@ public class Spot : MonoBehaviour, IPointerClickHandler {
 		}
 	}
 		
+		
 }
