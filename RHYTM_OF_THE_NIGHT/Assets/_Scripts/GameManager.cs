@@ -43,8 +43,7 @@ public class GameManager : MonoBehaviour {
 
 			int value = UnityEngine.Random.Range(0, enemyList.Count);
 
-			var enemy = Instantiate(enemyList[value]);
-			enemy.transform.parent = dCanvas.transform;
+			enemyList [value].SetActive (true);
 
 		}
 

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Spot : MonoBehaviour, IPointerClickHandler {
 
 	#region Public 
 
-	public bool big;
+	public CanvasGroup cGroup;
+	public int points;
 
 	#endregion 
 
@@ -18,7 +20,8 @@ public class Spot : MonoBehaviour, IPointerClickHandler {
 			
 			Debug.Log ("Left click");
 
-			if (gameObject.tag == "blue") {
+			if (gameObject.tag == "blue" && cGroup.alpha >= 1) 
+			{
 
 				Debug.Log ("Corretto");
 
@@ -31,15 +34,11 @@ public class Spot : MonoBehaviour, IPointerClickHandler {
 			}
 
 		} 
-		else if (eventData.button == PointerEventData.InputButton.Middle) 
-		{
-			Debug.Log ("Middle click");
-		}
 		else if (eventData.button == PointerEventData.InputButton.Right) 
 		{
 			Debug.Log ("Right click");
 
-			if (gameObject.tag == "red") {
+			if (gameObject.tag == "red" && cGroup.alpha >= 1) {
 
 				Debug.Log ("Corretto");
 
@@ -52,4 +51,5 @@ public class Spot : MonoBehaviour, IPointerClickHandler {
 			}
 		}
 	}
+		
 }
