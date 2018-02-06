@@ -15,6 +15,7 @@ MonoBehaviour:
     categories:
     - categoryName: Example 1 - SimpleScene
       itemNames:
+      - ~Element Name~
       - MainMenu
       - Menu 1
       - Menu 2
@@ -259,7 +260,6 @@ MonoBehaviour:
         m_Value: 0
     - categoryName: Fade
       presets:
-      - {fileID: 11400000, guid: 0f0b5e9644c3c4e4397a2a31b2ec8679, type: 2}
       - {fileID: 11400000, guid: 6df25452e95fa3b448afa10611ada376, type: 2}
       - {fileID: 11400000, guid: e0d6987a5a0b9414fa2c4397f6b66873, type: 2}
       - {fileID: 11400000, guid: 6613009b71a8df047a26588c24c3411c, type: 2}
@@ -273,7 +273,6 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 9f19087af62275849931d3d6400fc505, type: 2}
       - {fileID: 11400000, guid: 780689e007ba30247af01e2bb3f6516c, type: 2}
       presetNames:
-      - FoldHorizontal
       - FoldVertical
       - InFast
       - InNormal
