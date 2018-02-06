@@ -32,3 +32,5 @@ RHYTM_OF_THE_NIGHT/sysinfo.txt
 # Builds
 RHYTM_OF_THE_NIGHT/*.apk
 RHYTM_OF_THE_NIGHT/*.unitypackage
+
+RHYTM_OF_THE_NIGHT/fmod_editor.log
