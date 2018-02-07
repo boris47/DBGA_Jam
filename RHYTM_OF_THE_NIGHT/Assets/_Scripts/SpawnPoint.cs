@@ -5,7 +5,8 @@ public class SpawnPoint : MonoBehaviour {
 
     public GameObject EnemyToSpawn;
 
-    public GameObject Enemy;
+
+    GameObject Enemy;
 
     private  void    Start()
     {
@@ -13,6 +14,7 @@ public class SpawnPoint : MonoBehaviour {
             return;
 
         Enemy =  Instantiate(EnemyToSpawn, transform.position, Quaternion.identity, transform.parent);
+        Enemy.transform.SetAsFirstSibling();
         Enemy.SetActive( false );
     }
 
@@ -22,12 +24,11 @@ public class SpawnPoint : MonoBehaviour {
         Enemy.SetActive(true);
     }
 
-    public void Hide()
+
+    public void     Hide()
     {
         Enemy.SetActive(false);
     }
-
-
 
 
 }
