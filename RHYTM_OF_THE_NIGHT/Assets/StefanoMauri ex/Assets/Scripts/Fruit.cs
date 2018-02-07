@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Fruit : MonoBehaviour {
 
@@ -26,6 +27,11 @@ public class Fruit : MonoBehaviour {
 			GameObject slicedFruit = Instantiate(fruitSlicedPrefab, transform.position, rotation);
 			Destroy(slicedFruit, 3f);
 			Destroy(gameObject);
+
+			GameObject.FindGameObjectWithTag ("Score").GetComponent<Manager> ().score += 1;
+			int value = GameObject.FindGameObjectWithTag ("Score").GetComponent<Manager> ().score;
+			GameObject.FindGameObjectWithTag ("Score").GetComponent<Text>().text = "Score: " + value;
+
 		}
 	}
 
