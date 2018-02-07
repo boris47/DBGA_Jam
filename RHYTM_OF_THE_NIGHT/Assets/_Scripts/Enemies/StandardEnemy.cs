@@ -6,12 +6,11 @@ using DG.Tweening;
 
 public class StandardEnemy : MonoBehaviour {
 
+	public	int	score, dmg;
 
-    public Sprite Disabled, Highlighted, Enabled;
+	private Sprite Disabled, Highlighted, Enabled;
 
-
-
-    private List<Button> buttons;
+    private List<Spot> buttons;
     public int buttonLife;
     public int timeIlluminate;
     public int timeActivate;
@@ -19,20 +18,40 @@ public class StandardEnemy : MonoBehaviour {
 
 
     int count;
-    public Button currentButton;
+    public Spot currentButton;
     int currentTarget;
 
     private void    Awake()
     {
-        buttons = new List<Button>();
+        buttons = new List<Spot>();
         foreach ( Transform child in transform )
         {
-            buttons.Add(child.GetComponent<Button>());
+			child.GetComponent<Button>().onClick.RemoveAllListeners();
+
+			if ( Random.value > 0.5f )
+			{
+				child.tag = "red";
+				Disabled	= CanvasManager.Instance.DisabledRed;
+				Highlighted = CanvasManager.Instance.HighlightedRed;
+				Enabled		= CanvasManager.Instance.EnabledRed;
+
+			}
+			else
+			{
+				child.tag = "blue";
+				Disabled	= CanvasManager.Instance.DisabledBlue;
+				Highlighted = CanvasManager.Instance.HighlightedBlue;
+				Enabled		= CanvasManager.Instance.EnabledBlue;
+			}
+
+			Spot s = child.gameObject.AddComponent<Spot>();
+			s.interactable = false;
+			buttons.Add(s);
         }
         currentButton = buttons[0];
-        currentButton.interactable = false;
+//        currentButton.interactable = false;
         currentButton.GetComponentInChildren<Image>().sprite = Disabled;
-
+		gameObject.AddComponent<ImageFlip>();
     }
 
 
@@ -104,7 +123,7 @@ public class StandardEnemy : MonoBehaviour {
 
     }
 
-    public  void    OnClick(Button button)
+    public  void    OnClick(Spot button)
     {
         if (currentTarget == buttons.Count - 1)
         {
@@ -114,10 +133,21 @@ public class StandardEnemy : MonoBehaviour {
 
         button.interactable = false;
         currentButton.GetComponentInChildren<Image>().sprite = Disabled;
+
+		CanvasManager.Instance.HUDref.AddScore( score);
+    }
+
+	public  void    OnWrongClick( Spot button )
+    {
+        CanvasManager.Instance.HUDref.ReduceBar();
+		if ( CanvasManager.Instance.HUDref.barHP.fillAmount <= 0f )
+		{
+			print( "HAI PERSO IGNORANTE" );
+		}
     }
 
 
-    void IlluminateButton(Button button)
+    void IlluminateButton(Spot button)
     {
 
         currentButton.GetComponentInChildren<Image>().sprite = Highlighted;
