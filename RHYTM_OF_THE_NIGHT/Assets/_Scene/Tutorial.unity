@@ -232,8 +232,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -320}
-  m_SizeDelta: {x: 181.4, y: 88.8}
+  m_AnchoredPosition: {x: 0.000012397999, y: -347}
+  m_SizeDelta: {x: 273, y: 106.79999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &661662228
 MonoBehaviour:
@@ -1686,8 +1686,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1344.1749, y: -48.3}
-  m_SizeDelta: {x: 384.05, y: 96.6}
+  m_AnchoredPosition: {x: 1461.75, y: -49.399998}
+  m_SizeDelta: {x: 327, y: 96.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1209636182
 MonoBehaviour:
@@ -1710,18 +1710,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f81fef2d6460acf44b80ff147d021ecd, type: 3}
-    m_FontSize: 41
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 41
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Spam Clicks on Purple\r"
+  m_Text: "Spam on Purple\r"
 --- !u!222 &1209636183
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1760,8 +1760,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 192.025, y: -48.3}
-  m_SizeDelta: {x: 384.05, y: 96.6}
+  m_AnchoredPosition: {x: 180.75, y: -49.399998}
+  m_SizeDelta: {x: 327, y: 96.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1237067520
 MonoBehaviour:
@@ -1784,11 +1784,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f81fef2d6460acf44b80ff147d021ecd, type: 3}
-    m_FontSize: 41
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 41
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1917,14 +1917,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12156863, g: 0.53333336, b: 0.7882353, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 12c66f53b08291349808feeb78200efb, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1970,8 +1970,8 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
+  m_ChildAlignment: 7
+  m_Spacing: 100
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -1995,8 +1995,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000024438, y: 94}
-  m_SizeDelta: {x: 1530.4, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0.000012159}
+  m_SizeDelta: {x: 1642.5, y: 97.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1565467462
 GameObject:
@@ -2045,14 +2045,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12156863, g: 0.53333336, b: 0.7882353, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 12c66f53b08291349808feeb78200efb, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2100,8 +2100,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000012398, y: -320}
-  m_SizeDelta: {x: 181.4, y: 88.8}
+  m_AnchoredPosition: {x: 0, y: -347}
+  m_SizeDelta: {x: 273, y: 106.79999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1566313620
 MonoBehaviour:
@@ -3321,8 +3321,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 576.07495, y: -48.3}
-  m_SizeDelta: {x: 384.05, y: 96.6}
+  m_AnchoredPosition: {x: 607.75, y: -49.399998}
+  m_SizeDelta: {x: 327, y: 96.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1573632347
 MonoBehaviour:
@@ -3345,11 +3345,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f81fef2d6460acf44b80ff147d021ecd, type: 3}
-    m_FontSize: 41
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 41
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3410,7 +3410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.007843138, g: 0.039215688, b: 0.05882353, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3419,11 +3419,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f81fef2d6460acf44b80ff147d021ecd, type: 3}
-    m_FontSize: 29
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 12
-    m_MaxSize: 30
+    m_MinSize: 4
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -3469,8 +3469,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960.125, y: -48.3}
-  m_SizeDelta: {x: 384.05, y: 96.6}
+  m_AnchoredPosition: {x: 1034.75, y: -49.399998}
+  m_SizeDelta: {x: 327, y: 96.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728102341
 MonoBehaviour:
@@ -3493,18 +3493,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f81fef2d6460acf44b80ff147d021ecd, type: 3}
-    m_FontSize: 41
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 41
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Swipe on the Yellow Drag
+  m_Text: Swipe on Yellow
 --- !u!222 &1728102342
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3543,8 +3543,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444, y: 11}
-  m_SizeDelta: {x: 768.1, y: 424}
+  m_AnchoredPosition: {x: -0.000022888, y: 75.2}
+  m_SizeDelta: {x: 1206.4, y: 564.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1964781563
 MonoBehaviour:
@@ -3567,20 +3567,21 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f81fef2d6460acf44b80ff147d021ecd, type: 3}
-    m_FontSize: 41
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 41
+    m_MinSize: 5
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Zer\xD8 is a Ninja Assassin apprentice.\r\n\r\nDuring his training in the
-    Shadow Art, his Master's Dojo is attacked from an enemy Cyborg Shinobi clan.\r\n\r\nHis
-    mission is to repel the invasion. (to find the enemies and kill them.)"
+  m_Text: "Zer\xD8 is a Ninja Assassin apprentice.\r\nHis body has been modified with
+    cybernetics implants.\n\r\nDuring his training in the Shadow Art, his Master's
+    Dojo is attacked from an enemy Cyborg Shinobi clan.\r\n\r\nHis mission is to repel
+    the invasion, and defend the Dojo."
 --- !u!222 &1964781564
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3625,18 +3626,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f81fef2d6460acf44b80ff147d021ecd, type: 3}
-    m_FontSize: 44
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
-    m_MaxSize: 44
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Be on time.
+  m_Text: Watch your Timing
 --- !u!222 &2069532051
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3658,8 +3659,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000022888002, y: -46.950016}
-  m_SizeDelta: {x: 264.9, y: 93.9}
+  m_AnchoredPosition: {x: 0.000011444001, y: -159.95001}
+  m_SizeDelta: {x: 377.4, y: 93.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2087232738
 GameObject:
@@ -3708,7 +3709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.007843138, g: 0.039215688, b: 0.05882353, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3717,11 +3718,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f81fef2d6460acf44b80ff147d021ecd, type: 3}
-    m_FontSize: 29
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 12
-    m_MaxSize: 30
+    m_MinSize: 4
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
