@@ -16,4 +16,14 @@ public class CaricaScena : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// EFunzione che permette di uscire dal gioco
+	/// </summary>
+	public void Exit()
+	{
+
+		Application.Quit ();
+
+	}
+
 }
