@@ -6,15 +6,17 @@ using UnityEngine.SceneManagement;
 public class PauseMenuUIManager : MonoBehaviour {
 
 	public GameObject pauseMenu;
-	public GameObject choice;
+	public GameObject restartChoice;
 	public GameObject pausePanel;
+    public GameObject exitChoice;
 
-	void Start () 
+    void Start () 
 	{
 		pausePanel.SetActive (true);
 		pauseMenu.SetActive (true);
-		choice.SetActive (false);
-	}
+        exitChoice.SetActive (false);
+        restartChoice.SetActive(false);
+    }
 
 	public void BackToGame ()
 	{
@@ -23,23 +25,32 @@ public class PauseMenuUIManager : MonoBehaviour {
 
 	public void PauseMenuExitGameChoice ()
 	{
-		choice.SetActive (true);
-		pauseMenu.SetActive (false);
+        exitChoice.SetActive(true);
+        restartChoice.SetActive(false);
+        pauseMenu.SetActive (false);
 	}
 
-	public void PauseMenuExitGameChoiceNo ()
+	public void PauseMenuChoiceNo ()
 	{
 		pauseMenu.SetActive (true);
-		choice.SetActive (false);
-	}
+        exitChoice.SetActive(false);
+        restartChoice.SetActive(false);
+    }
 
-	public void PauseMenuExitGame ()
+    public void RestartGameChoice ()
+    {
+        pauseMenu.SetActive(false);
+        exitChoice.SetActive(false);
+        restartChoice.SetActive(true);
+    }
+
+    public void PauseMenuExitGame ()
 	{
 		Application.Quit();
 	}
 
-    public void Restart ()
+    public void Restart()
     {
-        SceneManager.GetActiveScene();
+        SceneManager.LoadScene ("SceneManager.GetActiveScene()");
     }
 }
