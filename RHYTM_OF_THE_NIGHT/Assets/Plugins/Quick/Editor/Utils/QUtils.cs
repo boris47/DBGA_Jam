@@ -181,7 +181,7 @@ namespace QuickEditor
         {
             switch(EditorUserBuildSettings.activeBuildTarget)
             {
-                case BuildTarget.StandaloneOSX: return BuildTargetGroup.Standalone;
+                //case BuildTarget.StandaloneOSX: return BuildTargetGroup.Standalone;
                 //case BuildTarget.StandaloneOSXIntel: return BuildTargetGroup.Standalone;
                 case BuildTarget.StandaloneWindows: return BuildTargetGroup.Standalone;
                 //case BuildTarget.WebPlayer: return BuildTargetGroup.WebPlayer;
