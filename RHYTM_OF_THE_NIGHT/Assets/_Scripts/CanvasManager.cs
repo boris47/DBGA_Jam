@@ -7,6 +7,12 @@ public class CanvasManager : MonoBehaviour
     public static CanvasManager Instance = null;
 
 
+	public HUD HUDref;
+
+	public Sprite DisabledBlue, HighlightedBlue, EnabledBlue;
+	public Sprite DisabledRed, HighlightedRed, EnabledRed;
+
+
     public int currentEnemyIndex = 0;
     public List<Transform> spawnPoints;
 
