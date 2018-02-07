@@ -13,12 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114767655295876282}
-  - {fileID: 114611574250791242}
+  - {fileID: 114962714359143178}
   EditorEvents:
   - {fileID: 114485412902789118}
-  MasterBankRef: {fileID: 114611574250791242}
+  MasterBankRef: {fileID: 114962714359143178}
   StringsBankRef: {fileID: 114767655295876282}
-  stringsBankWriteTime: 636535224849318617
+  stringsBankWriteTime: 636535933742310181
   cacheVersion: 2
 --- !u!114 &114238321978097756
 MonoBehaviour:
@@ -53,7 +53,7 @@ MonoBehaviour:
   Path: event:/testBeat
   guid: 09850f6a63885942a50d3b0f940220b0
   Banks:
-  - {fileID: 114611574250791242}
+  - {fileID: 114962714359143178}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\AudioBanks\Master Bank.strings.bank
-  lastModified: 636535224849318617
+  lastModified: 636535933742310181
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -149,6 +149,25 @@ MonoBehaviour:
   Path: C:\Users\dbga_42\Desktop\JAM_DBGA\RHYTM_OF_THE_NIGHT\Assets\AudioBanks\Master
     Bank.bank
   lastModified: 636535224849308617
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 806816
+  Exists: 1
+--- !u!114 &114962714359143178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\fabio\Documents\DBGA_Jam\RHYTM_OF_THE_NIGHT\Assets\AudioBanks\Master
+    Bank.bank
+  lastModified: 636535933742288746
   LoadResult: 0
   FileSizes:
   - Name: 
