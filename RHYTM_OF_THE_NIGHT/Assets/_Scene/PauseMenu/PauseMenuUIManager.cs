@@ -2,32 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DoozyUI;
 
-public class PauseMenuUIManager : MonoBehaviour {
+public class PauseMenuUIManager : MonoBehaviour 
+{
 
-	/*
-	public GameObject pauseMenu;
-	public GameObject restartChoice;
-	public GameObject pausePanel;
-    public GameObject exitChoice;
-    */
 
-	/// <summary>
-	/// Metodo riprende il gioco
-	/// </summary>
-	public void BackToGame ()
-	{
-		//pausePanel.SetActive (false);
-		Time.timeScale = 1f;
-	}
+	public GameObject pausa;
+	public GameObject start;
+	public GameObject panelPausa;
+
+	public GameObject backgroundButtons;
+
 
 	/// <summary>
 	/// Metodo che mette in pausa il gioco
 	/// </summary>
 	public void Pause()
 	{
-
-		Time.timeScale = 0f;
+		if (pausa.activeSelf == true && start.activeSelf == false) 
+		{
+			panelPausa.SetActive (true);
+			pausa.SetActive (false);
+			start.SetActive (true);
+			Time.timeScale = 0f;
+		}
+		else
+		{
+			
+			panelPausa.SetActive (false);
+			pausa.SetActive (true);
+			start.SetActive (false);
+			Time.timeScale = 1f;
+		}
 
 	}
 
@@ -47,28 +54,6 @@ public class PauseMenuUIManager : MonoBehaviour {
 	{
 		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
 	}
-
-	/*
-	public void PauseMenuExitGameChoice ()
-	{
-        exitChoice.SetActive(true);
-        restartChoice.SetActive(false);
-        pauseMenu.SetActive (false);
-	}
-
-	public void PauseMenuChoiceNo ()
-	{
-		pauseMenu.SetActive (true);
-        exitChoice.SetActive(false);
-        restartChoice.SetActive(false);
-    }
-
-    public void RestartGameChoice ()
-    {
-        pauseMenu.SetActive(false);
-        exitChoice.SetActive(false);
-        restartChoice.SetActive(true);
-    }*/
 
   
 }

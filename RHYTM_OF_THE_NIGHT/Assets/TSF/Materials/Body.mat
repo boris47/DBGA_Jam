@@ -28,13 +28,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Asym: 0
-    - _Brightness: 1.31
+    - _Brightness: 1.18
     - _Cull: 2
     - _Cutoff: 0.5
     - _DS: 0
     - _DetailTex: 0
     - _Outl: 1
-    - _Outline: 7.32
+    - _Outline: 4.8
     - _TintColor: 0
     - _TrOp: 0
     - _Trans: 0
@@ -42,4 +42,4 @@ Material:
     m_Colors:
     - _Asymmetry: {r: 0, g: 0.25, b: 0.5, a: 0}
     - _Color: {r: 0.5661765, g: 0.27059904, b: 0.27059904, a: 0}
-    - _OutlineColor: {r: 0, g: 0.040882874, b: 0.312, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}

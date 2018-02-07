@@ -21,9 +21,9 @@ MonoBehaviour:
       - Menu 2
       - Menu 3
       isExpanded:
-        m_Target: 1
+        m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
     - categoryName: Example 2 - OrientationManager
       itemNames:
       - MainMenu
@@ -63,6 +63,16 @@ MonoBehaviour:
         m_Target: 0
         speed: 2
         m_Value: 0
+    - categoryName: Pausa
+      itemNames:
+      - ~Element Name~
+      - Conferma1
+      - Conferma2
+      - Main
+      isExpanded:
+        m_Target: 1
+        speed: 2
+        m_Value: 1
     - categoryName: Uncategorized
       itemNames:
       - ~Element Name~
@@ -78,6 +88,7 @@ MonoBehaviour:
     - Example 3 - Buttons
     - Example 4 - Simple UI
     - MyCategory
+    - Pausa
     - Uncategorized
   DatabaseUIButtons:
     categories:
@@ -134,8 +145,8 @@ MonoBehaviour:
     - Example 4 - Simple UI
     - Uncategorized
   DatabaseUICanvases:
-  - MasterCanvas
   - GameCanvas
+  - MasterCanvas
   DatabaseUISounds:
     sounds:
     - {fileID: 11400000, guid: 59de0091c9523d146a71bf3e2f187753, type: 2}
