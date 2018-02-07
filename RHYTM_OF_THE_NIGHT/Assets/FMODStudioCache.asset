@@ -13,12 +13,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114767655295876282}
+<<<<<<< HEAD
   - {fileID: 114756926088091112}
   EditorEvents:
   - {fileID: 114485412902789118}
   MasterBankRef: {fileID: 114756926088091112}
+=======
+  - {fileID: 114962714359143178}
+  EditorEvents:
+  - {fileID: 114485412902789118}
+  MasterBankRef: {fileID: 114962714359143178}
+>>>>>>> origin/master
   StringsBankRef: {fileID: 114767655295876282}
-  stringsBankWriteTime: 636535224849318617
+  stringsBankWriteTime: 636535933742310181
   cacheVersion: 2
 --- !u!114 &114238321978097756
 MonoBehaviour:
@@ -53,7 +60,11 @@ MonoBehaviour:
   Path: event:/testBeat
   guid: 09850f6a63885942a50d3b0f940220b0
   Banks:
+<<<<<<< HEAD
   - {fileID: 114756926088091112}
+=======
+  - {fileID: 114962714359143178}
+>>>>>>> origin/master
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -111,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\AudioBanks\Master Bank.strings.bank
-  lastModified: 636535224849318617
+  lastModified: 636535933742310181
   LoadResult: 0
   FileSizes:
   - Name: 
