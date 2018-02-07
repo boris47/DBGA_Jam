@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 5ba2574eaa1acdf4c9c2586d9b839a33
+timeCreated: 1518023327
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: base_eprgamena
+    100002: base_luce_2
+    100004: base_luce_soffitto_1
+    100006: base_scritta_1
+    100008: casse
+    100010: controllo_casse
+    100012: cornice_scritta_1
+    100014: lamapda_terra
+    100016: luce_2
+    100018: luce_lampada_terreno
+    100020: luce_oggetto_cyberpunk_1
+    100022: luce_oggetto_cyberpunk_2
+    100024: luce_soffitto_1
+    100026: oggeto_cyberpunk_1
+    100028: oggetto_cyberpunk_2
+    100030: //RootNode
+    100032: priettore_pergamena
+    100034: scritta1
+    100036: scritta_pergamena
+    100038: speaker_casse
+    400000: base_eprgamena
+    400002: base_luce_2
+    400004: base_luce_soffitto_1
+    400006: base_scritta_1
+    400008: casse
+    400010: controllo_casse
+    400012: cornice_scritta_1
+    400014: lamapda_terra
+    400016: luce_2
+    400018: luce_lampada_terreno
+    400020: luce_oggetto_cyberpunk_1
+    400022: luce_oggetto_cyberpunk_2
+    400024: luce_soffitto_1
+    400026: oggeto_cyberpunk_1
+    400028: oggetto_cyberpunk_2
+    400030: //RootNode
+    400032: priettore_pergamena
+    400034: scritta1
+    400036: scritta_pergamena
+    400038: speaker_casse
+    2300000: base_eprgamena
+    2300002: base_luce_2
+    2300004: base_luce_soffitto_1
+    2300006: base_scritta_1
+    2300008: casse
+    2300010: controllo_casse
+    2300012: cornice_scritta_1
+    2300014: lamapda_terra
+    2300016: luce_2
+    2300018: luce_lampada_terreno
+    2300020: luce_oggetto_cyberpunk_1
+    2300022: luce_oggetto_cyberpunk_2
+    2300024: luce_soffitto_1
+    2300026: oggeto_cyberpunk_1
+    2300028: oggetto_cyberpunk_2
+    2300030: priettore_pergamena
+    2300032: scritta1
+    2300034: scritta_pergamena
+    2300036: speaker_casse
+    3300000: base_eprgamena
+    3300002: base_luce_2
+    3300004: base_luce_soffitto_1
+    3300006: base_scritta_1
+    3300008: casse
+    3300010: controllo_casse
+    3300012: cornice_scritta_1
+    3300014: lamapda_terra
+    3300016: luce_2
+    3300018: luce_lampada_terreno
+    3300020: luce_oggetto_cyberpunk_1
+    3300022: luce_oggetto_cyberpunk_2
+    3300024: luce_soffitto_1
+    3300026: oggeto_cyberpunk_1
+    3300028: oggetto_cyberpunk_2
+    3300030: priettore_pergamena
+    3300032: scritta1
+    3300034: scritta_pergamena
+    3300036: speaker_casse
+    4300000: base_eprgamena
+    4300002: base_luce_2
+    4300004: base_luce_soffitto_1
+    4300006: base_scritta_1
+    4300008: casse
+    4300010: controllo_casse
+    4300012: cornice_scritta_1
+    4300014: lamapda_terra
+    4300016: luce_2
+    4300018: luce_lampada_terreno
+    4300020: luce_oggetto_cyberpunk_1
+    4300022: luce_oggetto_cyberpunk_2
+    4300024: luce_soffitto_1
+    4300026: oggeto_cyberpunk_1
+    4300028: oggetto_cyberpunk_2
+    4300030: priettore_pergamena
+    4300032: scritta1
+    4300034: scritta_pergamena
+    4300036: speaker_casse
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
