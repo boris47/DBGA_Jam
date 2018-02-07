@@ -21,12 +21,13 @@ public class StandardEnemy : MonoBehaviour {
     public Spot currentButton;
     int currentTarget;
 
-    private void    Awake()
+    private void    Start()
     {
         buttons = new List<Spot>();
         foreach ( Transform child in transform )
         {
-			child.GetComponent<Button>().onClick.RemoveAllListeners();
+            child.GetComponent<Button>().interactable = false;
+            child.GetComponent<Button>().onClick.RemoveAllListeners();
 
 			if ( Random.value > 0.5f )
 			{
@@ -34,7 +35,6 @@ public class StandardEnemy : MonoBehaviour {
 				Disabled	= CanvasManager.Instance.DisabledRed;
 				Highlighted = CanvasManager.Instance.HighlightedRed;
 				Enabled		= CanvasManager.Instance.EnabledRed;
-
 			}
 			else
 			{
@@ -44,19 +44,25 @@ public class StandardEnemy : MonoBehaviour {
 				Enabled		= CanvasManager.Instance.EnabledBlue;
 			}
 
-			Spot s = child.gameObject.AddComponent<Spot>();
+            child.GetComponentInChildren<Image>().sprite = Disabled;
+
+            Spot s = child.gameObject.AddComponent<Spot>();
 			s.interactable = false;
 			buttons.Add(s);
         }
         currentButton = buttons[0];
-//        currentButton.interactable = false;
         currentButton.GetComponentInChildren<Image>().sprite = Disabled;
-		gameObject.AddComponent<ImageFlip>();
+        gameObject.AddComponent<ImageFlip>();
     }
 
 
     private void    OnEnable()
     {
+        if (FMOD_BeatListener.Instance == null)
+            print( "nio" );
+
+        if (FMOD_BeatListener.Instance.OnBeat == null)
+            print( "niiiioooo" );
         FMOD_BeatListener.Instance.OnBeat += OnBeat;
     }
 
@@ -73,19 +79,20 @@ public class StandardEnemy : MonoBehaviour {
         if(count < buttonLife)
         {
             count++;
-
+            /*
             if(count == timeIlluminate)
             {
 
                 IlluminateButton(buttons[currentTarget]);
 
             }
+            */
             if(count == timeActivate)
             {
                 currentButton.interactable = true;
                 currentButton.GetComponentInChildren<Image>().sprite = Enabled;
 
-                if(currentTarget == buttons.Count-1)
+                if (currentTarget == buttons.Count-1)
                 {
                     // spawn next enemy
                     CanvasManager.Instance.SpawnNextEnemy();
@@ -134,7 +141,7 @@ public class StandardEnemy : MonoBehaviour {
         button.interactable = false;
         currentButton.GetComponentInChildren<Image>().sprite = Disabled;
 
-		CanvasManager.Instance.HUDref.AddScore( score);
+        CanvasManager.Instance.HUDref.AddScore( score);
     }
 
 	public  void    OnWrongClick( Spot button )
@@ -151,7 +158,7 @@ public class StandardEnemy : MonoBehaviour {
     {
 
         currentButton.GetComponentInChildren<Image>().sprite = Highlighted;
-        
+
     }
 
 }

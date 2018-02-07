@@ -24,9 +24,12 @@ class FMOD_BeatListener : MonoBehaviour {
 
 	private	FMOD.Studio.EventInstance		m_MusicInstance;
 
+    private void bump(int i)
+    { }
 
     private void Awake()
     {
+        OnBeat = new FMOD_BeatListener_OnBeat(bump);
         Instance = this;
     }
 

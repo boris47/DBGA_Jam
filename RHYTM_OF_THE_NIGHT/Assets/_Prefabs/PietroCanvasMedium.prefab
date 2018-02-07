@@ -8470,6 +8470,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a798e2bbc39dffe4d8f0ba673a498c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HUDref: {fileID: 0}
+  DisabledBlue: {fileID: 21300000, guid: d3dee669272b24c4ebcdf5c78077983c, type: 3}
+  HighlightedBlue: {fileID: 21300000, guid: 66c7ff3ef9726074ba7a1d14372507fd, type: 3}
+  EnabledBlue: {fileID: 21300000, guid: d9542d841173fff42bd6147f88e94b21, type: 3}
+  DisabledRed: {fileID: 21300000, guid: 8b94163945605c04b8f78e7bf8ac25c5, type: 3}
+  HighlightedRed: {fileID: 21300000, guid: 50d0121c2239d9740ba2b97543a84ad2, type: 3}
+  EnabledRed: {fileID: 21300000, guid: 26bf04c345982dc4aa8fd023d1a389ee, type: 3}
   currentEnemyIndex: 0
   spawnPoints: []
 --- !u!114 &114485547606726712
@@ -11448,7 +11455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc27f5b7e4fa9984a9e78d87451c04ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasName: MasterCanvas
+  canvasName: EnemyCanvas
   customCanvasName: 0
   dontDestroyOnLoad: 0
 --- !u!114 &114829127849344420
