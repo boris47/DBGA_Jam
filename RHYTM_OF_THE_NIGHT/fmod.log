@@ -16,7 +16,7 @@
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000000059EC5218 isAsync 1 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000000070FBE148 isAsync 1 updatePeriod 0.02
 [LOG] Thread::initThread                       : Init FMOD Studio update thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
@@ -66,7 +66,7 @@
 [LOG] SoundI::release                          :     TestDigitalJam (000000004EE3BC58)
 [LOG] SoundI::release                          :     done
 [LOG] SoundI::release                          : release subsounds. (000000004ED4B4F8)
-[LOG] SoundI::release                          :     TestDigitalJam (000000004EFBD068)
+[LOG] SoundI::release                          :     TestDigitalJam (000000004EFBC7F8)
 [LOG] SoundI::release                          :     done
 [LOG] SoundI::release                          : release codec. (000000004ED4B4F8)
 [LOG] SoundI::release                          : done

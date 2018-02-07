@@ -12,8 +12,6 @@ public class PauseMenuUIManager : MonoBehaviour
 	public GameObject start;
 	public GameObject panelPausa;
 
-	public GameObject backgroundButtons;
-
 
 	/// <summary>
 	/// Metodo che mette in pausa il gioco

@@ -8176,6 +8176,12 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1211686552}
+--- !u!114 &1229163783 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1288490794}
+  m_Script: {fileID: 11500000, guid: abb5c4702c7d6e344b9832a97ae1264d, type: 3}
 --- !u!1001 &1288490794
 Prefab:
   m_ObjectHideFlags: 0
@@ -8197,6 +8203,11 @@ Prefab:
         type: 2}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: OnInAnimationsFinish.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224828205446510432, guid: 6d4773fe88905ec458e43a32b32cb1b3,
         type: 2}
@@ -8311,7 +8322,7 @@ Prefab:
     - target: {fileID: 223436988864978394, guid: 6d4773fe88905ec458e43a32b32cb1b3,
         type: 2}
       propertyPath: m_OverrideSorting
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114063066249285298, guid: 6d4773fe88905ec458e43a32b32cb1b3,
         type: 2}
@@ -8422,6 +8433,299 @@ Prefab:
         type: 2}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoopPresetCategory
+      value: Uncommon
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoopPresetName
+      value: InAndOutFast
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.move.movement.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.move.ease
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.move.duration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.rotate.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.rotate.rotation.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.rotate.ease
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.rotate.duration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.scale.min.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.scale.min.y
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.scale.min.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.scale.max.x
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.scale.max.y
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.scale.max.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.scale.ease
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.scale.duration
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.rotateIsExpanded.m_Target
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: onClickPunchPresetCategory
+      value: Uncategorized
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: onClickPunchPresetName
+      value: DefaultPreset
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.rotateIsExpanded.m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: deselectButtonOnClick
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: loadOnClickPunchPresetAtRuntime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: loadSelectedLoopPresetAtRuntime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: useOnPointerEnter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: onPointerEnterPunchPresetCategory
+      value: Flip
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: onPointerEnterPunchPresetName
+      value: Horizontal180
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: loadOnPointerEnterPunchPresetAtRuntime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: useOnPointerExit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: loadOnPointerExitPunchPresetAtRuntime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: onPointerExitPunchPresetCategory
+      value: Flip
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: onPointerExitPunchPresetName
+      value: Horizontal180
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: useOnClickAnimations
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: waitForOnClickAnimation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.move.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.moveIsExpanded.m_Target
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.moveIsExpanded.m_Value
+      value: 0.99201834
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.scale.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.scaleIsExpanded.m_Target
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677284601468848, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: selectedLoop.scaleIsExpanded.m_Value
+      value: 0.005874574
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831189990727434, guid: 6d4773fe88905ec458e43a32b32cb1b3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224700637558007448, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: startHidden
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: animateAtStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895029734205300, guid: 6d4773fe88905ec458e43a32b32cb1b3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114363327504377846, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: autoHide
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114363327504377846, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: animateAtStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: disableWhenHidden
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: dontDisableCanvasWhenHidden
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: autoHide
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: OnInAnimationsFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: OnInAnimationsFinish.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: OnInAnimationsFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1229163783}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: OnInAnimationsFinish.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: OnInAnimationsFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: OnInAnimationsFinish.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: loadInAnimationsPresetAtRuntime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: loadOutAnimationsPresetAtRuntime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534995481017166, guid: 6d4773fe88905ec458e43a32b32cb1b3,
+        type: 2}
+      propertyPath: loadLoopAnimationsPresetAtRuntime
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d4773fe88905ec458e43a32b32cb1b3, type: 2}
