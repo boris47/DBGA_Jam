@@ -13,9 +13,11 @@ public class SpawnPoint : MonoBehaviour {
         if (EnemyToSpawn == null)
             return;
 
-        Enemy =  Instantiate(EnemyToSpawn, transform.position, Quaternion.identity, transform.parent);
+        Enemy =  Instantiate(EnemyToSpawn, transform.position, Quaternion.identity, transform);
         Enemy.transform.SetAsFirstSibling();
-        Enemy.SetActive( false );
+        //       Enemy.SetActive( false );
+
+//        gameObject.SetActive(false);
     }
 
 
