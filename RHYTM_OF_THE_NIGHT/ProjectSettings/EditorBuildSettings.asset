@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/SimpleDragAndDrop/Scenes/MainScene.unity
     guid: 17d9637ab8cabc84fb2f439649944984
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scene/Stefano_Mauri.unity
     guid: 083f4c696c3fd8f4fbee2b7cac2a261b
+  - enabled: 1
+    path: Assets/_Scene/MenuM.unity
+    guid: 7961f40baa4c48b46af93770ca21972b
+  - enabled: 1
+    path: Assets/_Scene/Tutorial.unity
+    guid: 3fa25b27e171383478cd28cadbef237f
