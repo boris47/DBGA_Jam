@@ -64,11 +64,12 @@ public class StandardEnemy : MonoBehaviour {
             if(count == timeActivate)
             {
                 currentButton.interactable = true;
-                GetComponentInChildren<Image>().sprite = Enabled;
+                currentButton.GetComponentInChildren<Image>().sprite = Enabled;
 
                 if(currentTarget == buttons.Count-1)
                 {
                     // spawn next enemy
+                    CanvasManager.Instance.SpawnNextEnemy();
                 }
 
             }
@@ -76,7 +77,7 @@ public class StandardEnemy : MonoBehaviour {
         else
         {
             currentButton.interactable = false;
-            GetComponentInChildren<Image>().sprite = Disabled;
+            currentButton.GetComponentInChildren<Image>().sprite = Disabled;
 
             if (currentTarget < buttons.Count - 1)
             {
@@ -86,6 +87,7 @@ public class StandardEnemy : MonoBehaviour {
             else
             {
                 // killed
+                OnKill();
             }
 
             
@@ -93,9 +95,23 @@ public class StandardEnemy : MonoBehaviour {
 
     }
 
+    public void OnKill()
+    {
+        // CanvasManager.Instance.SpawnNextEnemy();
+
+        gameObject.SetActive(false); 
+
+
+    }
 
     public  void    OnClick(Button button)
     {
+        if (currentTarget == buttons.Count - 1)
+        {
+            OnKill();
+            return;
+        }
+
         button.interactable = false;
         currentButton.GetComponentInChildren<Image>().sprite = Disabled;
     }
@@ -104,7 +120,7 @@ public class StandardEnemy : MonoBehaviour {
     void IlluminateButton(Button button)
     {
 
-        GetComponentInChildren<Image>().sprite = Highlighted;
+        currentButton.GetComponentInChildren<Image>().sprite = Highlighted;
         
     }
 
