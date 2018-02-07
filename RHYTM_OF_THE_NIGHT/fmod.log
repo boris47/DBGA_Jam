@@ -16,7 +16,7 @@
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000000070FBE148 isAsync 1 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000000003E4516B8 isAsync 1 updatePeriod 0.02
 [LOG] Thread::initThread                       : Init FMOD Studio update thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
@@ -32,15 +32,15 @@
 [LOG] SystemI::createSound                     : filename = Assets\AudioBanks/Master Bank.bank : mode 02010082
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] Thread::initThread                       : Init FMOD nonblocking thread (0). Priority: 1, Stack Size: 81920, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
-[LOG] SystemI::createSound                     : setdata soundi = 000000004ED4B4F8 : node = 00000000611087E0
-[LOG] SystemI::createSound                     : add node to async list : head = 000000004EE3C428.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000004ED4B4F8
+[LOG] SystemI::createSound                     : setdata soundi = 000000004E5C4C08 : node = 00000000611083F0
+[LOG] SystemI::createSound                     : add node to async list : head = 000000004EE3BDA8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000004E5C4C08
 [LOG] SystemI::createSoundInternal             :     filename = Assets\AudioBanks/Master Bank.bank : mode 02010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 793152
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 13664
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 16698560
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 16416
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000611088F8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000000061108508
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -59,16 +59,16 @@
 [LOG] Thread::initThread                       :         Init FMOD file thread. Priority: 1, Stack Size: 16384, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000004ED4B4F8
-[LOG] SoundI::getSubSound                      : sound 000000004ED4B4F8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : TestDigitalJam (000000004ED4B4F8)
-[LOG] SoundI::release                          : remove stream samples. (000000004ED4B4F8)
-[LOG] SoundI::release                          :     TestDigitalJam (000000004EE3BC58)
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000004E5C4C08
+[LOG] SoundI::getSubSound                      : sound 000000004E5C4C08.  Subsound index 0 / 1
+[LOG] SoundI::release                          : TestDigitalJam (000000004E5C4C08)
+[LOG] SoundI::release                          : remove stream samples. (000000004E5C4C08)
+[LOG] SoundI::release                          :     TestDigitalJam (000000004EE3C618)
 [LOG] SoundI::release                          :     done
-[LOG] SoundI::release                          : release subsounds. (000000004ED4B4F8)
-[LOG] SoundI::release                          :     TestDigitalJam (000000004EFBC7F8)
+[LOG] SoundI::release                          : release subsounds. (000000004E5C4C08)
+[LOG] SoundI::release                          :     TestDigitalJam (000000003E1246F8)
 [LOG] SoundI::release                          :     done
-[LOG] SoundI::release                          : release codec. (000000004ED4B4F8)
+[LOG] SoundI::release                          : release codec. (000000004E5C4C08)
 [LOG] SoundI::release                          : done
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
