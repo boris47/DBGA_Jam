@@ -37,4 +37,9 @@ public class PauseMenuUIManager : MonoBehaviour {
 	{
 		Application.Quit();
 	}
+
+    public void Restart ()
+    {
+        SceneManager.GetActiveScene();
+    }
 }
