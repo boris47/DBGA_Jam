@@ -5,24 +5,50 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuUIManager : MonoBehaviour {
 
+	/*
 	public GameObject pauseMenu;
 	public GameObject restartChoice;
 	public GameObject pausePanel;
     public GameObject exitChoice;
+    */
 
-    void Start () 
-	{
-		pausePanel.SetActive (true);
-		pauseMenu.SetActive (true);
-        exitChoice.SetActive (false);
-        restartChoice.SetActive(false);
-    }
-
+	/// <summary>
+	/// Metodo riprende il gioco
+	/// </summary>
 	public void BackToGame ()
 	{
-		pausePanel.SetActive (false);
+		//pausePanel.SetActive (false);
+		Time.timeScale = 1f;
 	}
 
+	/// <summary>
+	/// Metodo che mette in pausa il gioco
+	/// </summary>
+	public void Pause()
+	{
+
+		Time.timeScale = 0f;
+
+	}
+
+	/// <summary>
+	/// Metodo che torna al menu principale
+	/// </summary>
+	public void PauseMenuExitGame ()
+	{
+		Application.Quit();
+		//Torni al Main menu
+	}
+
+	/// <summary>
+	/// Metodo che riavvia il livello
+	/// </summary>
+	public void Restart()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
+	}
+
+	/*
 	public void PauseMenuExitGameChoice ()
 	{
         exitChoice.SetActive(true);
@@ -42,15 +68,7 @@ public class PauseMenuUIManager : MonoBehaviour {
         pauseMenu.SetActive(false);
         exitChoice.SetActive(false);
         restartChoice.SetActive(true);
-    }
+    }*/
 
-    public void PauseMenuExitGame ()
-	{
-		Application.Quit();
-	}
-
-    public void Restart()
-    {
-        SceneManager.LoadScene ("SceneManager.GetActiveScene()");
-    }
+  
 }

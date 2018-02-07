@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 114267473135164172}
   - component: {fileID: 114112930017398514}
   m_Layer: 5
-  m_Name: Nemico_Difficile
+  m_Name: Nemico_Generico
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
