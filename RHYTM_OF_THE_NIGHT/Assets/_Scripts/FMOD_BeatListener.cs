@@ -3,23 +3,19 @@ using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-[Serializable]
-public class FMOD_BeatListener_OnBeat      : UnityEngine.Events.UnityEvent<int> { }
+class FMOD_BeatListener : MonoBehaviour {
 
-[Serializable]
-public class FMOD_BeatListener_OnMark      : UnityEngine.Events.UnityEvent<string> { }
+    public static FMOD_BeatListener         Instance        = null;
 
-class FMOD_BeatListener : MonoBehaviour
-{
+    public delegate  void FMOD_BeatListener_OnBeat( int i );
+    public delegate  void FMOD_BeatListener_OnMark( string s );
 
-	[ SerializeField ]
+
+    public FMOD_BeatListener_OnBeat OnBeat = null;
+    public FMOD_BeatListener_OnMark OnMark = null;
+
+    [ SerializeField ]
 	private	string							m_Event			= "";
-
-	[ SerializeField ]
-	private	FMOD_BeatListener_OnBeat		m_OnBeat		= null;
-
-	[ SerializeField ]
-	private	FMOD_BeatListener_OnMark		m_OnMark		= null;
 
 	static	int								m_BeatCount		= -1;
 	static	bool							m_OnBeatToCall	= false;
@@ -29,7 +25,12 @@ class FMOD_BeatListener : MonoBehaviour
 	private	FMOD.Studio.EventInstance		m_MusicInstance;
 
 
-	private	void	Start()
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    private	void	Start()
 	{
 		if ( m_Event == null || m_Event.Length == 0 )
 		{
@@ -46,23 +47,30 @@ class FMOD_BeatListener : MonoBehaviour
 
 		m_MusicInstance.setCallback(beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
 		m_MusicInstance.start();
-	}
+
+        Instance = this;
+    }
+
+    private void OnEnable()
+    {
+        Instance = this;
+    }
 
 
-	private void Update()
+    private void Update()
 	{
 		if ( m_OnBeatToCall == true )
 		{
-			if ( m_OnBeat != null && m_OnBeat.GetPersistentEventCount() > 0 )
-				m_OnBeat.Invoke( m_BeatCount );
+            if (OnBeat != null)
+                OnBeat(m_BeatCount);
 
-			m_OnBeatToCall = false;
+            m_OnBeatToCall = false;
 		}
 
 		if ( m_OnMarkToCall == true )
 		{
-			if ( m_OnMark != null && m_OnMark.GetPersistentEventCount() > 0 )
-				m_OnMark.Invoke( m_MarkName );
+			if ( OnMark != null )
+                OnMark( m_MarkName );
 
 			m_OnMarkToCall = false;
 		}
