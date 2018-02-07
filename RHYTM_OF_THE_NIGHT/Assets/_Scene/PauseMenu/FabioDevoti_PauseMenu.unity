@@ -607,6 +607,7 @@ GameObject:
   - component: {fileID: 591398894}
   - component: {fileID: 591398893}
   - component: {fileID: 591398892}
+  - component: {fileID: 591398895}
   m_Layer: 0
   m_Name: PausePanel
   m_TagString: Untagged
@@ -668,6 +669,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &591398895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 591398891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3047e1959a2cfc241b444c1a9af0f427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 591398891}
+  pauseButton: {fileID: 0}
 --- !u!1 &855005510
 GameObject:
   m_ObjectHideFlags: 0
