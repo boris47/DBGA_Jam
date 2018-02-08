@@ -6,6 +6,8 @@ public class FruitSpawner : MonoBehaviour {
 
 	public GameObject fruitPrefab;
 	public Transform[] spawnPoints;
+    public AudioSource aud;
+    public AudioClip clip;
 
 	public float minDelay = .1f;
 	public float maxDelay = 1f;
@@ -26,6 +28,7 @@ public class FruitSpawner : MonoBehaviour {
 			Transform spawnPoint = spawnPoints[spawnIndex];
 
 			GameObject spawnedFruit = Instantiate(fruitPrefab, spawnPoint.position, spawnPoint.rotation);
+            aud.PlayOneShot(clip);
 			Destroy(spawnedFruit, 5f);
 		}
 	}

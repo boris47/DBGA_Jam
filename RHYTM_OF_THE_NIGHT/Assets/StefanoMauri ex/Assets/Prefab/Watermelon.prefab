@@ -161,3 +161,4 @@ MonoBehaviour:
   fruitSlicedPrefab: {fileID: 1051390302531860, guid: ca05a4d9e03cfc240aef1c9a84d3c9d6,
     type: 2}
   startForce: 13
+  clip: {fileID: 8300000, guid: 6f02b4a39bbf99a4b9f856a753c34d5c, type: 3}

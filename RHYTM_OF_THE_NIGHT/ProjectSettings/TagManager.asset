@@ -9,6 +9,7 @@ TagManager:
   - red
   - blue
   - Score
+  - Audio
   layers:
   - Default
   - TransparentFX
