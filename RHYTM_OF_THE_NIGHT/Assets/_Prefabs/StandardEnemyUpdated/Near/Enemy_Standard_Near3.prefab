@@ -2549,7 +2549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   dmg: 0
-  buttonLife: 4
+  buttonLife: 10
   timeIlluminate: 0
   timeActivate: 4
   currentButton: {fileID: 0}

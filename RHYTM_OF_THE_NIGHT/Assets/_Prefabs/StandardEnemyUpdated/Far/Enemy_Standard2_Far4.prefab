@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 95662727772197496}
   - component: {fileID: 114136512281326568}
   m_Layer: 5
-  m_Name: Enemy_Standard_Far4
+  m_Name: Enemy_Standard2_Far4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1288,11 +1288,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530f0ef0440014f4cb8e46c44afd447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  score: 1
   dmg: 0
-  buttonLife: 4
+  buttonLife: 10
   timeIlluminate: 0
-  timeActivate: 4
+  timeActivate: 3
   currentButton: {fileID: 0}
 --- !u!114 &114173083032411408
 MonoBehaviour:
