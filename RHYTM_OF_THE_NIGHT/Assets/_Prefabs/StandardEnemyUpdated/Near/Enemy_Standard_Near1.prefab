@@ -1315,9 +1315,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   dmg: 0
-  buttonLife: 5
-  timeIlluminate: 1
-  timeActivate: 3
+  buttonLife: 4
+  timeIlluminate: 0
+  timeActivate: 4
   currentButton: {fileID: 0}
 --- !u!114 &114420536875563444
 MonoBehaviour:

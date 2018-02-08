@@ -3729,9 +3729,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   dmg: 0
-  buttonLife: 5
-  timeIlluminate: 1
-  timeActivate: 3
+  buttonLife: 4
+  timeIlluminate: 0
+  timeActivate: 4
   currentButton: {fileID: 0}
 --- !u!222 &222228670292608652
 CanvasRenderer:
