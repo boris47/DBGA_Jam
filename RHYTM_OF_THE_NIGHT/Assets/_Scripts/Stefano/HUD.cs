@@ -12,9 +12,9 @@ public class HUD : MonoBehaviour
 	/// <summary>
 	/// Metodo che aggiunge score
 	/// </summary>
-	public void UpdateScoreBar(int value)
+	public void UpdateScoreBar(float value)
 	{
-
+        print(value);
         barScore.fillAmount += value;
 
 	}
@@ -26,10 +26,10 @@ public class HUD : MonoBehaviour
 	/// <summary>
 	/// Metodo che toglie valore alla barra della vita
 	/// </summary>
-	public void UpdateLifeBar()
+	public void UpdateLifeBar(float value)
 	{
 
-		barHP.fillAmount -= 0.1f;
+        barHP.fillAmount = value;
 
 	}
 

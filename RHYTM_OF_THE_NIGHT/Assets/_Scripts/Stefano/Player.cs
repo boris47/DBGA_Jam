@@ -6,9 +6,10 @@ public class Player : MonoBehaviour {
 
     public static Player Instance;
 
-    public int life;
-    public int score;
-    public int maxScore;
+    public float life;
+    public float score;
+    public float maxScore;
+    public float maxLife;
     public HUD hud;
 
     private void Awake()
@@ -16,15 +17,25 @@ public class Player : MonoBehaviour {
         Instance = this;
     }
 
-    public void AddScore(int points)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+            AddScore(50);
+        if (Input.GetKeyDown(KeyCode.O))
+            LoseLife();
+    }
+
+    public void AddScore(float points)
     {
         this.score += points;
+        hud.UpdateScoreBar(this.score / this.maxScore);
 
     }
 
-    public void LooseLife()
+    public void LoseLife()
     {
         life--;
+        hud.UpdateLifeBar(this.life / this.maxLife);
     }
 
 }
