@@ -51,25 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede3e9b882a8c054fa100ff79412891e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Event: testBeat
-  m_OnBeat:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnBeat
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: FMOD_BeatListener_OnBeat, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  m_OnMark:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: FMOD_BeatListener_OnMark, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+  m_Event: Kalimba

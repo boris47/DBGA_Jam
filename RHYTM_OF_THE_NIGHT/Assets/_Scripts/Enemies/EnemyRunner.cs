@@ -32,7 +32,7 @@ public class EnemyRunner : MonoBehaviour
     public void OnKill()
     {
         // spawn next enemy
-        CanvasManager.Instance.SpawnNextEnemy();
+//        CanvasManager.Instance.SpawnNextEnemy();
         gameObject.SetActive(false);
 
     }

@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	#region Public 
+    public static Player Instance;
 
-	public int life;
+    public int life;
+    public int score;
+    public int maxScore;
+    public HUD hud;
 
-	#endregion
+    private void Awake()
+    {
+        Instance = this;
+    }
 
-	// Use this for initialization
-	void Start () 
-	{
+    public void AddScore(int points)
+    {
+        this.score += points;
 
+    }
 
+    public void LooseLife()
+    {
+        life--;
+    }
 
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-
-
-	}
 }
