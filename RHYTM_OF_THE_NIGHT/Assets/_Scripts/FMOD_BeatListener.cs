@@ -109,7 +109,7 @@ class FMOD_BeatListener : MonoBehaviour {
 				{
 					FMOD.Studio.TIMELINE_BEAT_PROPERTIES parameter = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure( parameters, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES) );
 					m_BeatCount	= parameter.beat;
-                    if (m_BeatCount == 4) CanvasManager.Instance.StartGame();
+//                    if (m_BeatCount == 4) CanvasManager.Instance.StartGame();
                     m_OnBeatToCall = true;
 				}
 				break;

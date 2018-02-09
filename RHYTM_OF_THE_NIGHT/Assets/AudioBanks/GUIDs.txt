@@ -1,7 +1,0 @@
-{6a0f8509-8863-4259-a50d-3b0f940220b0} event:/testBeat
-{ecc5bb14-93af-41a9-a818-0f01c2195616} event:/Easy_94
-{a03edf90-9d74-41ed-9c4f-dfae8836725e} event:/Medium_128
-{fe8f3352-06d5-4d1d-81dd-20882035ed88} event:/Hard_150
-{0a99a825-2d23-4594-9b80-56e6395db03c} bus:/
-{a9f934b9-f6a1-4c4e-8450-fb74626082c8} bus:/Reverb
-{f5ddc2b9-a3c4-4db3-8b3e-a581b1a68947} bank:/Master Bank
