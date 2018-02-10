@@ -4,12 +4,18 @@ using System.Collections.Generic;
 public class CanvasManager : MonoBehaviour
 {
 
-    public static CanvasManager Instance = null;
+    public static CanvasManager		Instance				= null;
 
 	[ SerializeField]
 	private		GameEvent			m_OnSequenceFinished	= null;
 
-//	[ SerializeField ]
+	public		float				SpotFadeOutTime			= 1.3f;
+	public		float				SpotMaxScore			= 2;
+
+	public		float				GoodDivisor				= 0;
+	public		float				BadDivisor				= 0;
+
+	//	[ SerializeField ]
 //	private		bool				m_Loop					= false;
 
 	/*
@@ -56,7 +62,7 @@ public class CanvasManager : MonoBehaviour
 		m_CurrentClicker ++;
 		if ( m_CurrentClicker == m_Childs.Length )
 		{
-			m_Childs[ m_Childs.Length - 1 ].gameObject.SetActive( false );
+//			m_Childs[ m_Childs.Length - 1 ].gameObject.SetActive( false );
 //			m_Childs[ m_Childs.Length - 1 ].Interactable = false;
 //			if ( m_Loop )
 //			{
@@ -68,7 +74,7 @@ public class CanvasManager : MonoBehaviour
 		}
 
 		m_Childs[ m_CurrentClicker ].gameObject.SetActive( true );
-		m_Childs[ m_CurrentClicker - 1 ].gameObject.SetActive( false );
+//		m_Childs[ m_CurrentClicker - 1 ].gameObject.SetActive( false );
 	}
 
 	

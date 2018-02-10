@@ -27,7 +27,7 @@ public class Scoreboard : MonoBehaviour {
 
 	public	static	Scoreboard Instance						= null;
 
-	private	const	string	DATA_FILENAME					= "PlayersData.dat";
+	private	const	string	DATA_FILENAME					= "PlayersData";
 
 	[ SerializeField ]
 	private	DataContainer	m_PlayersDataContainer			= null;
@@ -95,7 +95,8 @@ public class Scoreboard : MonoBehaviour {
 	private	void	LoadData()
 	{
 		// if file exists load data
-		if ( System.IO.File.Exists( DATA_FILENAME ) )
+		int sceneIdx = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+		if ( System.IO.File.Exists( DATA_FILENAME + sceneIdx + "dat" ) )
 		{
 			string data = System.IO.File.ReadAllText ( DATA_FILENAME );
 			m_PlayersDataContainer = new DataContainer();
@@ -196,8 +197,9 @@ public class Scoreboard : MonoBehaviour {
 	// ReleaseData
 	private	void	ReleaseData()
 	{
+		int sceneIdx = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
 		string data = JsonUtility.ToJson( m_PlayersDataContainer );
-		System.IO.File.WriteAllText( DATA_FILENAME, data );
+		System.IO.File.WriteAllText( DATA_FILENAME + sceneIdx + "dat", data );
 	}
 
 

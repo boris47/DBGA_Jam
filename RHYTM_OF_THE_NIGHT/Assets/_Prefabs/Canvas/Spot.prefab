@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224617682615477078}
   - component: {fileID: 222049873923263860}
   - component: {fileID: 114968356925963034}
-  - component: {fileID: 114609927457613426}
+  - component: {fileID: 114940066336793576}
   m_Layer: 5
   m_Name: Spot
   m_TagString: Untagged
@@ -29,7 +29,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114609927457613426
+--- !u!114 &114940066336793576
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -37,7 +37,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1313100725389024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d5506337a8a4564aae5aa2d685ccc1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 64858e481a2eed34fb8c42de0898e0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_BeatLife: 2
