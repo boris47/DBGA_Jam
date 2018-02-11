@@ -16,19 +16,15 @@ public class AStarSearch : MonoBehaviour {
 
 	//////////////////////////////////////////////////////////////////////////
 	// GetBestNode
-	private	GridNode	GetBestNode( IEnumerable set, bool useHeuristic )
+	private GridNode GetBestNode(List<GridNode> set, bool useHeuristic)
 	{
 		GridNode bestNode = null;
 		float bestTotal = float.MaxValue;
 
 		foreach( GridNode n in set )
 		{
-//			Clicker clicker = n.GetComponent<Clicker>();
-//			if ( clicker.IsActive == true )
-//				continue;
-
-			float totalCost = useHeuristic ? n.gCost + n.Heuristic : n.gCost;
-			if ( totalCost < bestTotal )
+			var totalCost = useHeuristic ? n.gCost + n.Heuristic : n.gCost;
+			if (totalCost < bestTotal)
 			{
 				bestTotal = totalCost;
 				bestNode = n;
@@ -72,15 +68,18 @@ public class AStarSearch : MonoBehaviour {
 		while ( openSet.Count > 0 )
 		{
 			GridNode currentNode = GetBestNode( openSet, true );
-
+			if ( currentNode == null )
+			{
+				print( "currentNode = null" );
+				GraphMaker.Instance.ResetNodes();
+				return null;
+			}
 			if ( currentNode == endNode )
 			{
 			//	Debug.Log("We found the end node!");
 				return RetracePath( startNode, endNode );
 			}
 
-			if ( currentNode == null )
-				return null;
 
 
 			// First node is always discovered
@@ -92,7 +91,7 @@ public class AStarSearch : MonoBehaviour {
 			{
 				// Ignore the neighbor which is already evaluated.
 				Clicker clicker = iNeighbour.GetComponent<Clicker>();
-				if ( clicker.IsActive == true || closedSet.Contains( iNeighbour ) )
+				if ( clicker.IsActive == true || closedSet.Contains( iNeighbour ) == true )
 					continue;
 
 				float gCost = currentNode.gCost + ( currentNode.transform.position - iNeighbour.transform.position ).sqrMagnitude;
@@ -109,6 +108,8 @@ public class AStarSearch : MonoBehaviour {
 			}
 		}
 
+		GraphMaker.Instance.ResetNodes();
+		print( "no path found" );
 		// no path found
 		return null;
 	}

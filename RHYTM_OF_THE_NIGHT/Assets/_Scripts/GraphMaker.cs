@@ -59,6 +59,7 @@ public class GraphMaker : MonoBehaviour {
 	{
 		foreach ( GridNode node in Nodes )
 		{
+			node.Heuristic = 0f;
 			node.gCost	= float.MaxValue;
 			node.Parent = null;
 		}

@@ -4,18 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-
 [System.Serializable]
 public class GameEvent      : UnityEngine.Events.UnityEvent { }
 
 
-public class Clicker : MonoBehaviour, IPointerClickHandler {
+public class Clicker : MonoBehaviour, IPointerClickHandler, IBeginDragHandler {
 
 	private static	TextureStorage	m_Feedbacks			= null;
 
 
-	public		bool				Interactable		{ get; set; }
-
+	public		bool				Interactable		= false;
 	public		bool				IsActive			= false;
 
 
@@ -40,22 +38,42 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 
 	private		float		m_CurrentLife		= 0f;
 
-	private		Color		m_DefaultColor		= Color.clear;
+	private		Image		m_Image				= null;
 
 	private void Start()
 	{
 		if ( m_Feedbacks == null )
 			m_Feedbacks = Resources.Load<TextureStorage>( "ScoreFeedbacks" );
 
-		m_DefaultColor = GetComponent<Image>().color;
+		m_Image = GetComponent<Image>();
+		IsActive = false;
 	}
 
 
+	public	void	Show()
+	{
+		StopAllCoroutines();
+		m_Image = GetComponent<Image>();
+		m_Image.color = Color.green;
+		Interactable = true;
+		IsActive = true;
+		m_CurrentLife = 0f;
+	}
+
+	public	void	Hide()
+	{
+		StopAllCoroutines();
+		IsActive = false;
+		Interactable = false;
+		m_Image = GetComponent<Image>();
+		m_Image.color = Color.clear;
+	}
+	/*
 	private void OnEnable()
 	{
 		StopAllCoroutines();
-		Image image = GetComponent<Image>();
-		image.color = Color.white;
+		m_Image = GetComponent<Image>();
+		m_Image.color = Color.green;
 		Interactable = true;
 		IsActive = true;
 		m_CurrentLife = 0f;
@@ -63,11 +81,12 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 
 	private void OnDisable()
 	{
+		StopAllCoroutines();
 		IsActive = false;
 	}
+	*/
 
-
-	public void OnPointerClick( PointerEventData eventData )
+	private	void	OnClickReceived( PointerEventData eventData )
 	{
 		if ( Interactable == false )
 			return;
@@ -86,16 +105,31 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 //		print( "Click errato" );
 	}
 
+	void IBeginDragHandler.OnBeginDrag( PointerEventData eventData )
+	{
+		OnClickReceived( eventData );
+	}
+
+	void IPointerClickHandler.OnPointerClick( PointerEventData eventData )
+	{
+		OnClickReceived( eventData );
+	}
+
 
 	private void	Update()
 	{
-		if ( FMOD_BeatListener.Instance.IsPaused )
+		if ( FMOD_BeatListener.Instance.IsPaused || Interactable == false )
 			return;
 
 		m_CurrentLife += Time.deltaTime;
 
 		if ( m_CurrentLife > GameManager.Instance.SpotLifeInSeconds )
-			gameObject.SetActive( false );
+		{
+			StartCoroutine( SpotFadeOut() );
+			return;
+		}
+
+		m_Image.color = Color.Lerp( Color.green, Color.red, m_CurrentLife / GameManager.Instance.SpotLifeInSeconds );
 
 		// Perfect
 		if ( IsBetween( m_CurrentLife, 0f, GameManager.Instance.SpotPerfectClickTime ) )
@@ -168,9 +202,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 			break;
 		}
 		ShowFeedBack( sprite, score );
-		print( m_ClickResult );
-		Image	image = GetComponent<Image>();
-		image.color = Color.yellow;
+		m_Image.color = Color.yellow;
 		StartCoroutine( SpotFadeOut() );
 	}
 
@@ -182,26 +214,22 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 	}
 		
 
-	IEnumerator SpotFadeOut()
+	private	IEnumerator SpotFadeOut()
 	{
 		float	currentTime	= 0f;
 		float	interpolant	= 0f;
 
-		Image	image = GetComponent<Image>();
-		image.raycastTarget = false;
+		m_Image.raycastTarget = false;
 		Interactable = false;
 
 		while( interpolant < 1.0f )
 		{
 			currentTime += Time.deltaTime;
 			interpolant = currentTime / GameManager.Instance.SpotFadeOutTime;
-			image.color = Color.Lerp( image.color, Color.clear, interpolant );
+			m_Image.color = Color.Lerp( m_Image.color, Color.clear, interpolant );
 			yield return null;
 		}
-
-		IsActive = false;
-		gameObject.SetActive( false );
-		image.color = m_DefaultColor;
+		m_Image.raycastTarget = true;
+		Hide();
 	}
-		
 }
