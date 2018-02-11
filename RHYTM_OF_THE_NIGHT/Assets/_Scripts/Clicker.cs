@@ -43,7 +43,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 	}
 	private		ClickResult	m_ClickResult		= ClickResult.PERFECT;
 
-	private		float		m_CurrentBeatLife	= 0f;
+	private		float		m_CurrentLife		= 0f;
 
 
 
@@ -52,22 +52,8 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 		if ( m_Feedbacks == null )
 			m_Feedbacks = Resources.Load<TextureStorage>( "ScoreFeedbacks" );
 
-		Interactable = true;
-		
+		Interactable = true;	
 	}
-
-
-	private void OnEnable()
-	{
-		FMOD_BeatListener.Instance.OnMark += OnMark;
-	}
-
-	private void OnDisable()
-	{
-		FMOD_BeatListener.Instance.OnMark -= OnMark;
-	}
-
-
 
 	public void OnPointerClick( PointerEventData eventData )
 	{
@@ -89,41 +75,27 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 	}
 
 
-	private	void	OnMark( string markName )
-	{
-		CanvasManager.Instance.Nextbutton();
-	}
-
-
-
-
-	private	void	ShowFeedBack( Sprite sprite, float score )
-	{
-		Player.Instance.AddScore( score );
-	}
-
-
 	private void	Update()
 	{
-		m_CurrentBeatLife += Time.deltaTime;
+		m_CurrentLife += Time.deltaTime;
 
-		if ( m_CurrentBeatLife > m_LifeinSeconds )
+		if ( m_CurrentLife > m_LifeinSeconds )
 			gameObject.SetActive( false );
 
 		// Perfect
-		if ( IsBetween( m_CurrentBeatLife, 0f, m_PerfectClick ) )
+		if ( IsBetween( m_CurrentLife, 0f, m_PerfectClick ) )
 		{
 			m_ClickResult = ClickResult.PERFECT;
 			return;
 		}
 		// Good
-		if ( IsBetween( m_CurrentBeatLife, m_PerfectClick, m_GoodClick ) )
+		if ( IsBetween( m_CurrentLife, m_PerfectClick, m_GoodClick ) )
 		{
 			m_ClickResult = ClickResult.GOOD;
 			return;
 		}
 		// Bad
-		if ( IsBetween( m_CurrentBeatLife, m_GoodClick, m_BadClick ) )
+		if ( IsBetween( m_CurrentLife, m_GoodClick, m_BadClick ) )
 		{
 			m_ClickResult = ClickResult.BAD;
 			return;
@@ -139,6 +111,13 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 	private	bool	IsBetween( float value, float min, float max )
 	{
 		return value > min && value < max;
+	}
+
+
+
+	private	void	ShowFeedBack( Sprite sprite, float score )
+	{
+		Player.Instance.AddScore( score );
 	}
 
 
@@ -181,6 +160,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 
 	private	void	OnWrongClick()
 	{
+		Player.Instance.LoseLife();
 		StartCoroutine( SpotFadeOut() );
 	}
 		

@@ -11,6 +11,7 @@ public class CanvasManager : MonoBehaviour
 
 	public		float				SpotFadeOutTime			= 1.3f;
 	public		float				SpotMaxScore			= 2;
+	public		float				GlobalMaxScore			= 2;
 
 	public		float				GoodDivisor				= 0;
 	public		float				BadDivisor				= 0;
@@ -41,6 +42,7 @@ public class CanvasManager : MonoBehaviour
 			Clicker c = transform.GetChild( i ).GetComponent<Clicker>();
 			c.gameObject.SetActive( false );
 			m_Childs[ i ] = c;
+			GlobalMaxScore += SpotMaxScore;
 		}
 
 		if ( m_Childs.Length == 0 )
@@ -49,12 +51,17 @@ public class CanvasManager : MonoBehaviour
 			return;
 		}
 
-		m_Childs[ 0 ].gameObject.SetActive( true );
+		FMOD_BeatListener.Instance.OnMark += OnMark;
 	}
 
 
+	private	void	OnMark( string markName )
+	{
+		Nextbutton();
+	}
 
-	public void Nextbutton()
+
+	private void Nextbutton()
 	{
 		if ( enabled == false )
 			return;
@@ -62,25 +69,18 @@ public class CanvasManager : MonoBehaviour
 		m_CurrentClicker ++;
 		if ( m_CurrentClicker == m_Childs.Length )
 		{
-//			m_Childs[ m_Childs.Length - 1 ].gameObject.SetActive( false );
-//			m_Childs[ m_Childs.Length - 1 ].Interactable = false;
-//			if ( m_Loop )
-//			{
-//				m_CurrentClicker = 0;
-//				m_Childs[ 0 ].gameObject.SetActive( true );
-//			}
 			OnButtonFinished();
+			enabled = false;
 			return;
 		}
 
 		m_Childs[ m_CurrentClicker ].gameObject.SetActive( true );
-//		m_Childs[ m_CurrentClicker - 1 ].gameObject.SetActive( false );
 	}
 
 	
 
 
-	public	void	OnButtonFinished()
+	private	void	OnButtonFinished()
 	{
 		m_OnSequenceFinished.Invoke();
 

@@ -6,17 +6,37 @@ public class Player : MonoBehaviour {
 
     public static Player Instance;
 
-    public float life;
-    public float score;
-    public float maxScore;
-    public float maxLife;
-    public HUD hud;
 
-    private void Awake()
+    
+	[ SerializeField ]
+	private	float	MaxLife			= 10f;
+
+	private	HUD		hud				= null;
+    private float	currentLife		= 0f;
+    private float	currentScore	= 0f;
+
+	private bool    m_IsOK          = true;
+
+
+    private void Start()
     {
         Instance = this;
+
+		GameObject hudOBJ = GameObject.Find( "HUD" );
+		if ( hudOBJ == null )
+		{
+			m_IsOK = false;
+			print( "HAI DIMENTICATO DI INSERIRE L'HUD IN SCENA !!!" );
+			return;
+		}
+
+		hud = hudOBJ.GetComponent<HUD>();
+
+		currentLife		= MaxLife;
     }
 
+
+	/*
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -24,18 +44,33 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.O))
             LoseLife();
     }
+	*/
 
-    public void AddScore(float points)
+
+    public void AddScore( float points )
     {
-        this.score += points;
-        hud.UpdateScoreBar(this.score / this.maxScore);
+		if ( m_IsOK == false )
+			return;
+
+        this.currentScore += points;
+        hud.UpdateScoreBar( this.currentScore / CanvasManager.Instance.GlobalMaxScore );
 
     }
 
     public void LoseLife()
     {
-        life--;
-        hud.UpdateLifeBar(this.life / this.maxLife);
+		if ( m_IsOK == false )
+			return;
+
+        currentLife--;
+
+		if ( currentLife < 0 )
+		{
+			// game over
+			return;
+		}
+
+        hud.UpdateLifeBar(this.currentLife / this.MaxLife);
     }
 
 }
