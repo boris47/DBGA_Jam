@@ -5,35 +5,49 @@ using UnityEngine;
 
 class FMOD_BeatListener : MonoBehaviour {
 
-    public static FMOD_BeatListener         Instance        = null;
+	public static FMOD_BeatListener         Instance        = null;
 
-    public delegate  void FMOD_BeatListener_OnBeat( int i );
-    public delegate  void FMOD_BeatListener_OnMark( string s );
+	private static	int						m_BeatCount		= -1;
+	private static	bool					m_OnBeatToCall	= false;
+	private static	string					m_MarkName		= "";
+	private static	bool					m_OnMarkToCall	= false;
 
 
-    public FMOD_BeatListener_OnBeat OnBeat = null;
-    public FMOD_BeatListener_OnMark OnMark = null;
+	public delegate  void FMOD_BeatListener_OnBeat( int i );
+	public delegate  void FMOD_BeatListener_OnMark( string s );
 
-    [ SerializeField ]
+
+	public FMOD_BeatListener_OnBeat			OnBeat
+	{
+		get; set;
+	}
+
+	public FMOD_BeatListener_OnMark			OnMark
+	{
+		get; set;
+	}
+
+	[ SerializeField ]
 	private	string							m_Event			= "";
 
-	static	int								m_BeatCount		= -1;
-	static	bool							m_OnBeatToCall	= false;
-	static	string							m_MarkName		= "";
-	static	bool							m_OnMarkToCall	= false;
+	private	bool	m_Paused = false;
+	public	bool	IsPaused
+	{
+		get { return m_Paused; }
+	}
+
 
 	private	FMOD.Studio.EventInstance		m_MusicInstance;
 
-    private void bump(int i)
-    { }
 
-    private void Awake()
-    {
-        OnBeat = new FMOD_BeatListener_OnBeat(bump);
-        Instance = this;
-    }
 
-    private	void	Start()
+	private void Awake()
+	{
+		Instance = this;
+	}
+
+
+	private	void	Start()
 	{
 		if ( m_Event == null || m_Event.Length == 0 )
 		{
@@ -51,29 +65,31 @@ class FMOD_BeatListener : MonoBehaviour {
 		m_MusicInstance.setCallback(beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
 		m_MusicInstance.start();
 
-        Instance = this;
-    }
-
-    private void OnEnable()
-    {
-        Instance = this;
-    }
+		Instance = this;
+	}
 
 
-    private void Update()
+	private void OnEnable()
+	{
+		Instance = this;
+	}
+
+
+
+	private void Update()
 	{
 		if ( m_OnBeatToCall == true )
 		{
-            if (OnBeat != null)
-                OnBeat(m_BeatCount);
+			if ( OnBeat != null )
+				OnBeat( m_BeatCount );
 
-            m_OnBeatToCall = false;
+			m_OnBeatToCall = false;
 		}
 
 		if ( m_OnMarkToCall == true )
 		{
 			if ( OnMark != null )
-                OnMark( m_MarkName );
+				OnMark( m_MarkName );
 
 			m_OnMarkToCall = false;
 		}
@@ -90,6 +106,11 @@ class FMOD_BeatListener : MonoBehaviour {
 	public	void	Stop()
 	{
 		m_MusicInstance.stop( FMOD.Studio.STOP_MODE.IMMEDIATE );
+	}
+
+	public	void	TooglePause()
+	{
+		m_MusicInstance.setPaused( m_Paused = !m_Paused );
 	}
 
 
@@ -109,8 +130,8 @@ class FMOD_BeatListener : MonoBehaviour {
 				{
 					FMOD.Studio.TIMELINE_BEAT_PROPERTIES parameter = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure( parameters, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES) );
 					m_BeatCount	= parameter.beat;
-//                    if (m_BeatCount == 4) CanvasManager.Instance.StartGame();
-                    m_OnBeatToCall = true;
+	//                    if (m_BeatCount == 4) CanvasManager.Instance.StartGame();
+					m_OnBeatToCall = true;
 				}
 				break;
 			case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER:

@@ -5,30 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/SimpleDragAndDrop/Scenes/MainScene.unity
-    guid: 17d9637ab8cabc84fb2f439649944984
-  - enabled: 0
-    path: Assets/_Scene/Stefano_Mauri.unity
-    guid: 083f4c696c3fd8f4fbee2b7cac2a261b
   - enabled: 1
-    path: Assets/_Scene/MenuM.unity
-    guid: 7961f40baa4c48b46af93770ca21972b
-  - enabled: 1
-    path: Assets/_Scene/Tutorial.unity
-    guid: 3fa25b27e171383478cd28cadbef237f
-  - enabled: 1
-    path: Assets/_Scene/GameOver.unity
-    guid: f98143fd654fbd94c814b672fb20ef11
-  - enabled: 1
-    path: Assets/_Scene/Easy1.unity
-    guid: 2ef60204297d5ae41bc336133e60b49b
-  - enabled: 1
-    path: Assets/_Scene/Medium.unity
-    guid: 146a7846f708df6439e0055133bdf832
-  - enabled: 1
-    path: Assets/_Scene/Hard 1.unity
-    guid: 3a55793131ceb3d4cb3e0dc107e0c115
-  - enabled: 1
-    path: Assets/_Scene/VeryHard.unity
-    guid: 6ed0eaed6f8c0c14c83e7a64f04f6092
+    path: Assets/_Scene/Vincenzo.unity
+    guid: 08c3aa0defbe9dd418967c9c82adc185

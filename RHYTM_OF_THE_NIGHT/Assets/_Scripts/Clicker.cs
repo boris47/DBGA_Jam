@@ -65,18 +65,21 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 		{
 			m_OnClickRight.Invoke();
 			OnClickRight();
-			print( "Click corretto" );
+//			print( "Click corretto" );
 			return;
 		}
 
 		m_OnClickWrong.Invoke();
 		OnWrongClick();
-		print( "Click errato" );
+//		print( "Click errato" );
 	}
 
 
 	private void	Update()
 	{
+		if ( FMOD_BeatListener.Instance.IsPaused )
+			return;
+
 		m_CurrentLife += Time.deltaTime;
 
 		if ( m_CurrentLife > m_LifeinSeconds )
