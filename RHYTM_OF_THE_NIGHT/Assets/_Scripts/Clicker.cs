@@ -16,12 +16,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 
 	public		bool				Interactable		{ get; set; }
 
-	public		float				m_LifeinSeconds		= 2.0f;
-	public		float				m_PerfectClick		= 0.7f;
-	public		float				m_GoodClick			= 1.2f;
-	public		float				m_BadClick			= 1.7f;
-
-
+	public		bool				IsActive			= false;
 
 
 	public	enum ClickButton
@@ -45,15 +40,32 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 
 	private		float		m_CurrentLife		= 0f;
 
-
+	private		Color		m_DefaultColor		= Color.clear;
 
 	private void Start()
 	{
 		if ( m_Feedbacks == null )
 			m_Feedbacks = Resources.Load<TextureStorage>( "ScoreFeedbacks" );
 
-		Interactable = true;	
+		m_DefaultColor = GetComponent<Image>().color;
 	}
+
+
+	private void OnEnable()
+	{
+		StopAllCoroutines();
+		Image image = GetComponent<Image>();
+		image.color = m_DefaultColor;
+		Interactable = true;
+		IsActive = true;
+		m_CurrentLife = 0f;
+	}
+
+	private void OnDisable()
+	{
+		IsActive = false;
+	}
+
 
 	public void OnPointerClick( PointerEventData eventData )
 	{
@@ -82,23 +94,23 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 
 		m_CurrentLife += Time.deltaTime;
 
-		if ( m_CurrentLife > m_LifeinSeconds )
+		if ( m_CurrentLife > GameManager.Instance.SpotLifeInSeconds )
 			gameObject.SetActive( false );
 
 		// Perfect
-		if ( IsBetween( m_CurrentLife, 0f, m_PerfectClick ) )
+		if ( IsBetween( m_CurrentLife, 0f, GameManager.Instance.SpotPerfectClickTime ) )
 		{
 			m_ClickResult = ClickResult.PERFECT;
 			return;
 		}
 		// Good
-		if ( IsBetween( m_CurrentLife, m_PerfectClick, m_GoodClick ) )
+		if ( IsBetween( m_CurrentLife, GameManager.Instance.SpotPerfectClickTime, GameManager.Instance.SpotGoodClickTime ) )
 		{
 			m_ClickResult = ClickResult.GOOD;
 			return;
 		}
 		// Bad
-		if ( IsBetween( m_CurrentLife, m_GoodClick, m_BadClick ) )
+		if ( IsBetween( m_CurrentLife, GameManager.Instance.SpotGoodClickTime, GameManager.Instance.SpotBadClickTime ) )
 		{
 			m_ClickResult = ClickResult.BAD;
 			return;
@@ -127,7 +139,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 	private	void	OnClickRight()
 	{
 		Sprite	sprite = null;
-		float	score = CanvasManager.Instance.SpotMaxScore;
+		float	score = GameManager.Instance.SpotMaxScore;
 		switch ( m_ClickResult )
 		{
 			case ClickResult.PERFECT:
@@ -138,25 +150,27 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 			break;
 			case ClickResult.GOOD:
 				{
-					sprite	= m_Feedbacks.Sprites[0];
-					score	= score / CanvasManager.Instance.GoodDivisor;
+					sprite	= m_Feedbacks.Sprites[1];
+					score	= score / GameManager.Instance.GoodDivisor;
 				}
 			break;
 			case ClickResult.BAD:
 				{
-					sprite	= m_Feedbacks.Sprites[0];
-					score	= score / CanvasManager.Instance.BadDivisor;
+					sprite	= m_Feedbacks.Sprites[2];
+					score	= score / GameManager.Instance.BadDivisor;
 				}
 			break;
 			case ClickResult.MISSED:
 				{
-					sprite	= m_Feedbacks.Sprites[0];
+					sprite	= m_Feedbacks.Sprites[3];
 					score	= 0;
 				}
 			break;
 		}
 		ShowFeedBack( sprite, score );
 		print( m_ClickResult );
+		Image	image = GetComponent<Image>();
+		image.color = Color.yellow;
 		StartCoroutine( SpotFadeOut() );
 	}
 
@@ -180,12 +194,14 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 		while( interpolant < 1.0f )
 		{
 			currentTime += Time.deltaTime;
-			interpolant = currentTime / CanvasManager.Instance.SpotFadeOutTime;
+			interpolant = currentTime / GameManager.Instance.SpotFadeOutTime;
 			image.color = Color.Lerp( image.color, Color.clear, interpolant );
 			yield return null;
 		}
 
+		IsActive = false;
 		gameObject.SetActive( false );
+		image.color = m_DefaultColor;
 	}
 		
 }

@@ -53,7 +53,7 @@ public class Player : MonoBehaviour {
 			return;
 
         this.currentScore += points;
-        hud.UpdateScoreBar( this.currentScore / CanvasManager.Instance.GlobalMaxScore );
+        hud.UpdateScoreBar( this.currentScore / GameManager.Instance.GlobalMaxScore );
 
     }
 

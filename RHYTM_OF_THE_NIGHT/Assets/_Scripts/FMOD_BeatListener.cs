@@ -60,9 +60,8 @@ class FMOD_BeatListener : MonoBehaviour {
 		// by the garbage collected while it's being used
 		FMOD.Studio.EVENT_CALLBACK beatCallback = new FMOD.Studio.EVENT_CALLBACK( BeatEventCallback );
 
-		m_MusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + m_Event );
-
-		m_MusicInstance.setCallback(beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
+		m_MusicInstance = FMODUnity.RuntimeManager.CreateInstance( m_Event );
+		m_MusicInstance.setCallback( beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER );
 		m_MusicInstance.start();
 
 		Instance = this;
