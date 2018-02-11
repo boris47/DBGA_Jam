@@ -55,7 +55,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 	{
 		StopAllCoroutines();
 		Image image = GetComponent<Image>();
-		image.color = m_DefaultColor;
+		image.color = Color.white;
 		Interactable = true;
 		IsActive = true;
 		m_CurrentLife = 0f;
