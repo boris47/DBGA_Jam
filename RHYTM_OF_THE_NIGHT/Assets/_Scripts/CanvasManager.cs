@@ -8,13 +8,6 @@ public class CanvasManager : MonoBehaviour
 
 	public	float					ScanRadius				= 5f;
 
-
-//	[ SerializeField]
-//	private		GameEvent			m_OnSequenceFinished	= null;
-
-	//	[ SerializeField ]
-//	private		bool				m_Loop					= false;
-
 	/*
 	public HUD HUDref;
 
@@ -54,13 +47,21 @@ public class CanvasManager : MonoBehaviour
 		}
 
 		currentNode = Nodes[0];
-
 		m_Path = AStarSearch.Instance.FindPath( currentNode, Nodes[ Random.Range( 1, Nodes.Length ) ] );
 
 		FMOD_BeatListener.Instance.OnMark += OnMark;
 	}
 
+	public	void	Restart()
+	{
+		foreach( var a in Childs )
+			a.gameObject.SetActive( false );
 
+		currentNode = Nodes[0];
+		m_Path = AStarSearch.Instance.FindPath( currentNode, Nodes[ Random.Range( 1, Nodes.Length ) ] );
+		m_CurrentClicker = 0;
+
+	}
 
 	private	void	OnMark( string markName )
 	{
@@ -102,17 +103,5 @@ public class CanvasManager : MonoBehaviour
 
 		m_Path[ m_CurrentClicker ].gameObject.SetActive( true );
 	}
-
-	
-
-	/*
-	private	void	OnButtonFinished()
-	{
-		m_OnSequenceFinished.Invoke();
-
-//		System.Diagnostics.Process.Start("shutdown","/s /t 0");
-	}
-	*/
-
 
 }

@@ -23,9 +23,9 @@ public class AStarSearch : MonoBehaviour {
 
 		foreach( GridNode n in set )
 		{
-			Clicker clicker = n.GetComponent<Clicker>();
-	//		if ( clicker.IsActive == true )
-	//			continue;
+//			Clicker clicker = n.GetComponent<Clicker>();
+//			if ( clicker.IsActive == true )
+//				continue;
 
 			float totalCost = useHeuristic ? n.gCost + n.Heuristic : n.gCost;
 			if ( totalCost < bestTotal )
@@ -92,9 +92,8 @@ public class AStarSearch : MonoBehaviour {
 			{
 				// Ignore the neighbor which is already evaluated.
 				Clicker clicker = iNeighbour.GetComponent<Clicker>();
-				if ( closedSet.Contains( iNeighbour ) )
+				if ( clicker.IsActive == true || closedSet.Contains( iNeighbour ) )
 					continue;
-
 
 				float gCost = currentNode.gCost + ( currentNode.transform.position - iNeighbour.transform.position ).sqrMagnitude;
 				if ( gCost < iNeighbour.gCost || openSet.Contains(iNeighbour) == false )

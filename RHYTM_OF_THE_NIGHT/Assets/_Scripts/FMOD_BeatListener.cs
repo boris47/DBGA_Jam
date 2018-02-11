@@ -94,6 +94,11 @@ class FMOD_BeatListener : MonoBehaviour {
 		}
 	}
 
+	public	void	Restart()
+	{
+		m_MusicInstance.stop( FMOD.Studio.STOP_MODE.IMMEDIATE );
+		m_MusicInstance.start();
+	}
 
 	public	void	Play()
 	{
