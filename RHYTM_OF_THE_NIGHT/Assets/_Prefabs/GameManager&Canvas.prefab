@@ -44,15 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a798e2bbc39dffe4d8f0ba673a498c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnDistance: 32
+  m_SpotCount: 722
+  m_StepSize: 64
   m_ObjToSpawn: {fileID: 1313100725389024, guid: 729b12bb45e4a3e4bbf6f96783fad264,
     type: 2}
-  m_Mosca: {fileID: 0}
-  maximumLinearVelocity: 306.2
-  maximumAngularVelocity: 630.3
-  maximumLinearAcceleration: 500
-  maximumLinearDeceleration: 100
-  maximumAngularAcceleration: 500
+  m_Path: []
 --- !u!114 &114427675583696340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede3e9b882a8c054fa100ff79412891e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Event: event:/VeryHard_174
+  m_Event: event:/Medium_128
 --- !u!114 &114623093606491698
 MonoBehaviour:
   m_ObjectHideFlags: 1

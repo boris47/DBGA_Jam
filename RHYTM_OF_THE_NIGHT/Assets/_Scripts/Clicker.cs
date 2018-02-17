@@ -25,6 +25,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 	{
 		m_Image = GetComponent<Image>();
 		m_Image.color = Color.white;
+		Interactable = true;
 	}
 
 
