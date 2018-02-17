@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class Clicker : MonoBehaviour, IPointerClickHandler {
 	
-	public		bool				Interactable		= true;
+	public		bool		Interactable		= false;
 
 	public enum ClickResult {
 		PERFECT, GOOD, BAD, MISSED
@@ -24,7 +24,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 	private void Start()
 	{
 		m_Image = GetComponent<Image>();
-		m_Image.color = Color.green;
+		m_Image.color = Color.white;
 	}
 
 
@@ -41,7 +41,10 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 		if ( FMOD_BeatListener.Instance.IsPaused || Interactable == false )
 			return;
 
+		m_Image.color = Color.green;
+
 		m_CurrentLife += Time.deltaTime;
+		m_Image.color = Color.Lerp( Color.green, Color.red, m_CurrentLife / GameManager.Instance.SpotLifeInSeconds );
 
 		if ( m_CurrentLife > GameManager.Instance.SpotLifeInSeconds )
 		{
@@ -50,7 +53,6 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 			return;
 		}
 
-		m_Image.color = Color.Lerp( Color.green, Color.red, m_CurrentLife / GameManager.Instance.SpotLifeInSeconds );
 
 		// Perfect
 		if ( IsBetween( m_CurrentLife, 0f, GameManager.Instance.SpotPerfectClickTime ) )

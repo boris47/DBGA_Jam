@@ -48,17 +48,24 @@ public class ProvaSpawn : MonoBehaviour {
 
     }
 
-
+	
+	GameObject prevObj = null;
     private void OnMark(string markName)
     {
         if (enabled == false)
             return;
 
-        NextButton();
+		if ( markName == "XXX" )
+		{
+			SpawnSpot();
+			return;
+		}
+
+
+		prevObj.GetComponent<Clicker>().Interactable = true;
     }
 
-
-    public void NextButton()
+    public void SpawnSpot()
     {
 
         counter += 1;
@@ -76,7 +83,7 @@ public class ProvaSpawn : MonoBehaviour {
         float randomX = Random.Range(panelXPosition + rectSpot.rect.width / 2, panelXPosition + buttonPanels[counter].rect.width - rectSpot.rect.width / 2);
         float randomY = Random.Range(panelYPosition + rectSpot.rect.width / 2, panelYPosition + buttonPanels[counter].rect.height - rectSpot.rect.width / 2);
 
-        Instantiate(spot, new Vector3(randomX, randomY, 0f), Quaternion.identity, buttonPanels[counter].transform);
+        prevObj = Instantiate(spot, new Vector3(randomX, randomY, 0f), Quaternion.identity, buttonPanels[counter].transform);
 
     }
 

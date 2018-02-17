@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64858e481a2eed34fb8c42de0898e0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interactable: 1
+  Interactable: 0
 --- !u!114 &114968356925963034
 MonoBehaviour:
   m_ObjectHideFlags: 1
