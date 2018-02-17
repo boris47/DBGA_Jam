@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-[System.Serializable]
-public class GameEvent      : UnityEngine.Events.UnityEvent { }
-
 
 public class Clicker : MonoBehaviour, IPointerClickHandler {
 
@@ -15,21 +12,6 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 
 	public		bool				Interactable		= false;
 	public		bool				IsActive			= false;
-
-
-	public	enum ClickButton
-	{
-		RIGHT, LEFT
-	}
-	[SerializeField]
-	private	ClickButton		clickButton			= ClickButton.LEFT;
-
-	[SerializeField]
-	private		GameEvent	m_OnClickRight		= null;
-
-	[SerializeField]
-	private		GameEvent	m_OnClickWrong		= null;
-
 
 	public enum ClickResult {
 		PERFECT, GOOD, BAD, MISSED
@@ -40,14 +22,15 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 
 	private		Image		m_Image				= null;
 
+
+
+
 	private void Start()
 	{
-		if ( m_Feedbacks == null )
-			m_Feedbacks = Resources.Load<TextureStorage>( "ScoreFeedbacks" );
-
 		m_Image = GetComponent<Image>();
 		IsActive = false;
 	}
+
 
 
 	public	void	Show()
@@ -60,6 +43,8 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 		m_CurrentLife = 0f;
 	}
 
+
+
 	public	void	Hide()
 	{
 		StopAllCoroutines();
@@ -69,32 +54,12 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 		m_Image.color = Color.clear;
 	}
 
-	private	void	OnClickReceived( PointerEventData eventData )
-	{
-		if ( Interactable == false )
-			return;
-
-		if ( ( eventData.button == PointerEventData.InputButton.Left  && clickButton == ClickButton.LEFT  )
-		|| (   eventData.button == PointerEventData.InputButton.Right && clickButton == ClickButton.RIGHT ))
-		{
-			m_OnClickRight.Invoke();
-			OnClickRight();
-//			print( "Click corretto" );
-			return;
-		}
-
-		m_OnClickWrong.Invoke();
-		OnWrongClick();
-//		print( "Click errato" );
-	}
-
 
 
 	void IPointerClickHandler.OnPointerClick( PointerEventData eventData )
 	{
-		OnClickReceived( eventData );
+		OnClick();
 	}
-
 
 
 
@@ -139,6 +104,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 	}
 
 
+
 	private	bool	IsBetween( float value, float min, float max )
 	{
 		return value > min && value < max;
@@ -146,7 +112,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 
 
 
-	private	void	OnClickRight()
+	private	void	OnClick()
 	{
 		float	score = GameManager.Instance.SpotMaxScore;
 		switch ( m_ClickResult )
@@ -178,13 +144,6 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 	}
 
 
-	private	void	OnWrongClick()
-	{
-		Player.Instance.LoseLife();
-		StartCoroutine( SpotFadeOut() );
-	}
-		
-
 
 	private	IEnumerator SpotFadeOut()
 	{
@@ -204,4 +163,5 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 		m_Image.raycastTarget = true;
 		Hide();
 	}
+
 }

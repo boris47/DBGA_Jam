@@ -67,8 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5751c2fe9e1db5349a6eb05d51425e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyToSpawn: {fileID: 1808063468599660, guid: d277e7a0f1adb104aa92422a24a11706,
-    type: 2}
+  EnemyToSpawn: {fileID: 0}
 --- !u!222 &222924184428192608
 CanvasRenderer:
   m_ObjectHideFlags: 1

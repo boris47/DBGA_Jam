@@ -40,19 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64858e481a2eed34fb8c42de0898e0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LifeinSeconds: 2
-  m_PerfectClick: 0
-  m_GoodClick: 0
-  m_BadClick: 0
-  clickButton: 1
-  m_OnClickRight:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_OnClickWrong:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  Interactable: 0
+  IsActive: 0
 --- !u!114 &114968356925963034
 MonoBehaviour:
   m_ObjectHideFlags: 1

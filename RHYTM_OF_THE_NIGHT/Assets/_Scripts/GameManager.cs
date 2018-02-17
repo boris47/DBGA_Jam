@@ -1,6 +1,8 @@
 ﻿
 using UnityEngine;
 
+[System.Serializable]
+public class GameEvent      : UnityEngine.Events.UnityEvent { }
 
 public class GameManager : MonoBehaviour {
 
