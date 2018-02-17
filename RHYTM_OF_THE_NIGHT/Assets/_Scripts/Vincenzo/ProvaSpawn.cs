@@ -5,23 +5,23 @@ using UnityEngine;
 public class ProvaSpawn : MonoBehaviour {
 
     public GameObject spot;
-    //public GameObject buttonPanel;
     public GameObject background;
     public GameObject buttonContainer;
     public List<RectTransform> buttonPanels;
 
+    public List<RectTransform> panelsInactive;
+
     RectTransform rectBackground;
-    //RectTransform rectPanel;
     RectTransform rectSpot;
     int counter = -1;
 
     private void Awake()
     {
-
-        /*for (int i = 0; i < buttonContainer.transform.childCount; i++)
+        panelsInactive = new List<RectTransform>();
+        foreach(RectTransform panel in buttonPanels)
         {
-            buttonPanels.Add(buttonContainer.transform.GetChild(i).gameObject.GetComponent<RectTransform>());
-        }*/    
+            panelsInactive.Add(panel);
+        }
 
         rectBackground = background.GetComponent<RectTransform>();
         rectSpot = spot.GetComponent<RectTransform>();
@@ -68,22 +68,26 @@ public class ProvaSpawn : MonoBehaviour {
     public void SpawnSpot()
     {
 
-        counter += 1;
-
-        if(counter >= buttonPanels.Count)
+        if (panelsInactive.Count <= 1)
         {
-            counter = 0;
+            panelsInactive.Clear();
+            foreach (RectTransform panel in buttonPanels)
+            {
+                panelsInactive.Add(panel);
+            }
         }
 
-        //rectPanel = buttonPanels[counter].GetComponent<RectTransform>();
+        counter = Random.Range(0, panelsInactive.Count);
 
-        float panelXPosition = buttonPanels[counter].transform.position.x;
-        float panelYPosition = buttonPanels[counter].transform.position.y;
+        float panelXPosition = panelsInactive[counter].transform.position.x;
+        float panelYPosition = panelsInactive[counter].transform.position.y;
 
-        float randomX = Random.Range(panelXPosition + rectSpot.rect.width / 2, panelXPosition + buttonPanels[counter].rect.width - rectSpot.rect.width / 2);
-        float randomY = Random.Range(panelYPosition + rectSpot.rect.width / 2, panelYPosition + buttonPanels[counter].rect.height - rectSpot.rect.width / 2);
+        float randomX = Random.Range(panelXPosition + rectSpot.rect.width / 2, panelXPosition + panelsInactive[counter].rect.width - rectSpot.rect.width / 2);
+        float randomY = Random.Range(panelYPosition + rectSpot.rect.width / 2, panelYPosition + panelsInactive[counter].rect.height - rectSpot.rect.width / 2);
 
-        prevObj = Instantiate(spot, new Vector3(randomX, randomY, 0f), Quaternion.identity, buttonPanels[counter].transform);
+        prevObj = Instantiate(spot, new Vector3(randomX, randomY, 0f), Quaternion.identity, panelsInactive[counter].transform);
+
+        panelsInactive.Remove(panelsInactive[counter]);
 
     }
 
