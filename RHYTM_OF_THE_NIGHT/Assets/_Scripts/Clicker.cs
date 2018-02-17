@@ -6,12 +6,8 @@ using UnityEngine.EventSystems;
 
 
 public class Clicker : MonoBehaviour, IPointerClickHandler {
-
-	private static	TextureStorage	m_Feedbacks			= null;
-
-
-	public		bool				Interactable		= false;
-	public		bool				IsActive			= false;
+	
+	public		bool				Interactable		= true;
 
 	public enum ClickResult {
 		PERFECT, GOOD, BAD, MISSED
@@ -28,30 +24,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 	private void Start()
 	{
 		m_Image = GetComponent<Image>();
-		IsActive = false;
-	}
-
-
-
-	public	void	Show()
-	{
-		StopAllCoroutines();
-		m_Image = GetComponent<Image>();
 		m_Image.color = Color.green;
-		Interactable = true;
-		IsActive = true;
-		m_CurrentLife = 0f;
-	}
-
-
-
-	public	void	Hide()
-	{
-		StopAllCoroutines();
-		IsActive = false;
-		Interactable = false;
-		m_Image = GetComponent<Image>();
-		m_Image.color = Color.clear;
 	}
 
 
@@ -73,6 +46,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 		if ( m_CurrentLife > GameManager.Instance.SpotLifeInSeconds )
 		{
 			StartCoroutine( SpotFadeOut() );
+			m_CurrentLife = -5000f;
 			return;
 		}
 
@@ -161,7 +135,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 			yield return null;
 		}
 		m_Image.raycastTarget = true;
-		Hide();
+		Destroy( gameObject );
 	}
 
 }

@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
 
 	public  static GameManager Instance = null;
 
+	public	int	MaxScore;
+
 	[Header("Times")]
 	[ SerializeField ]
 	private		float				m_SpotLifeinSeconds		= 2.0f;
