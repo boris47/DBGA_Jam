@@ -80,7 +80,7 @@ public class CanvasManager : MonoBehaviour
 
 	private	void	Update()
 	{
-		if ( FMOD_BeatListener.Instance.IsPaused == false )
+		if ( FMOD_BeatListener.Instance.IsPaused == true )
 			return;
 
 		// Get the steering output
