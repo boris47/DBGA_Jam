@@ -68,7 +68,7 @@ public class ProvaSpawn : MonoBehaviour {
     public void SpawnSpot()
     {
 
-        if (panelsInactive.Count <= 1)
+        if (panelsInactive.Count < 5)
         {
             panelsInactive.Clear();
             foreach (RectTransform panel in buttonPanels)
