@@ -5,17 +5,25 @@ using UnityEngine;
 public class ProvaSpawn : MonoBehaviour {
 
     public GameObject spot;
-    public GameObject buttonPanel;
+    //public GameObject buttonPanel;
     public GameObject background;
+    public GameObject buttonContainer;
+    public List<RectTransform> buttonPanels;
 
     RectTransform rectBackground;
-    RectTransform rectPanel;
+    //RectTransform rectPanel;
     RectTransform rectSpot;
+    int counter = -1;
 
     private void Awake()
     {
+
+        /*for (int i = 0; i < buttonContainer.transform.childCount; i++)
+        {
+            buttonPanels.Add(buttonContainer.transform.GetChild(i).gameObject.GetComponent<RectTransform>());
+        }*/    
+
         rectBackground = background.GetComponent<RectTransform>();
-        rectPanel = buttonPanel.GetComponent<RectTransform>();
         rectSpot = spot.GetComponent<RectTransform>();
     }
 
@@ -53,17 +61,23 @@ public class ProvaSpawn : MonoBehaviour {
     public void NextButton()
     {
 
-        float panelXPosition = rectPanel.transform.position.x;
-        float panelYPosition = rectPanel.transform.position.y;
+        counter += 1;
 
-        float randomX = Random.Range(rectSpot.rect.width / 2, rectPanel.rect.width - rectSpot.rect.width / 2);
-        float randomY = Random.Range(panelYPosition / 2, rectPanel.rect.height);
+        if(counter >= buttonPanels.Count)
+        {
+            counter = 0;
+        }
 
-        Instantiate(spot, new Vector3(randomX, randomY, 0f), Quaternion.identity, buttonPanel.transform);
+        //rectPanel = buttonPanels[counter].GetComponent<RectTransform>();
+
+        float panelXPosition = buttonPanels[counter].transform.position.x;
+        float panelYPosition = buttonPanels[counter].transform.position.y;
+
+        float randomX = Random.Range(panelXPosition + rectSpot.rect.width / 2, panelXPosition + buttonPanels[counter].rect.width);
+        float randomY = Random.Range(panelYPosition, buttonPanels[counter].rect.height);
+
+        Instantiate(spot, new Vector3(randomX, randomY, 0f), Quaternion.identity, buttonPanels[counter].transform);
 
     }
-
-
-
 
 }
