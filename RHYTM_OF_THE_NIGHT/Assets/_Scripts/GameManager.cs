@@ -84,7 +84,6 @@ public class GameManager : MonoBehaviour {
 
 	public	void	Restart()
 	{
-		GraphMaker.Instance.ResetNodes();
 		FMOD_BeatListener.Instance.Restart();
 		CanvasManager.Instance.Restart();
 	}

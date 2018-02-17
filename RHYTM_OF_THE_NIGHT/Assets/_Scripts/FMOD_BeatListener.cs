@@ -27,13 +27,13 @@ class FMOD_BeatListener : MonoBehaviour {
 		get; set;
 	}
 
-	[ SerializeField ]
+	[ SerializeField ][FMODUnity.EventRef]
 	private	string							m_Event			= "";
 
-	private	bool	m_Paused = false;
+	private	bool	m_IsPaused = false;
 	public	bool	IsPaused
 	{
-		get { return m_Paused; }
+		get { return m_IsPaused; }
 	}
 
 
@@ -114,7 +114,7 @@ class FMOD_BeatListener : MonoBehaviour {
 
 	public	void	TooglePause()
 	{
-		m_MusicInstance.setPaused( m_Paused = !m_Paused );
+		m_MusicInstance.setPaused( m_IsPaused = !m_IsPaused );
 	}
 
 

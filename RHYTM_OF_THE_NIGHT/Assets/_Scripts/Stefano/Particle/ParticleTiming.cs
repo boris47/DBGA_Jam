@@ -8,19 +8,22 @@ public class ParticleTiming : MonoBehaviour {
 
 	private float timer = 0;
 
+
+
+	private void OnEnable()
+	{
+		timer = 0;
+	}
+
+
 	void Update()
 	{
-
 		timer += Time.deltaTime;
 
-		if (timer >= lifeTime) 
+		if ( gameObject.activeSelf == true && timer >= lifeTime ) 
 		{
-
-			timer = 0;
 			gameObject.SetActive (false);
-
 		}
-
 	}
 
 }

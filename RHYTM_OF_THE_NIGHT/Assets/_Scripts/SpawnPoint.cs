@@ -13,7 +13,7 @@ public class SpawnPoint : MonoBehaviour {
         if (EnemyToSpawn == null)
             return;
 
-        Enemy =  Instantiate(EnemyToSpawn, transform.position, Quaternion.identity, transform);
+        Enemy =  Instantiate( EnemyToSpawn, transform.position, Quaternion.identity, transform );
 
 		Transform canvas = transform.parent;
 

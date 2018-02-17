@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class GameEvent      : UnityEngine.Events.UnityEvent { }
 
 
-public class Clicker : MonoBehaviour, IPointerClickHandler, IBeginDragHandler {
+public class Clicker : MonoBehaviour, IPointerClickHandler {
 
 	private static	TextureStorage	m_Feedbacks			= null;
 
@@ -31,7 +31,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler, IBeginDragHandler {
 	private		GameEvent	m_OnClickWrong		= null;
 
 
-	private enum ClickResult {
+	public enum ClickResult {
 		PERFECT, GOOD, BAD, MISSED
 	}
 	private		ClickResult	m_ClickResult		= ClickResult.PERFECT;
@@ -68,23 +68,6 @@ public class Clicker : MonoBehaviour, IPointerClickHandler, IBeginDragHandler {
 		m_Image = GetComponent<Image>();
 		m_Image.color = Color.clear;
 	}
-	/*
-	private void OnEnable()
-	{
-		StopAllCoroutines();
-		m_Image = GetComponent<Image>();
-		m_Image.color = Color.green;
-		Interactable = true;
-		IsActive = true;
-		m_CurrentLife = 0f;
-	}
-
-	private void OnDisable()
-	{
-		StopAllCoroutines();
-		IsActive = false;
-	}
-	*/
 
 	private	void	OnClickReceived( PointerEventData eventData )
 	{
@@ -105,15 +88,14 @@ public class Clicker : MonoBehaviour, IPointerClickHandler, IBeginDragHandler {
 //		print( "Click errato" );
 	}
 
-	void IBeginDragHandler.OnBeginDrag( PointerEventData eventData )
-	{
-		OnClickReceived( eventData );
-	}
+
 
 	void IPointerClickHandler.OnPointerClick( PointerEventData eventData )
 	{
 		OnClickReceived( eventData );
 	}
+
+
 
 
 	private void	Update()
@@ -164,44 +146,33 @@ public class Clicker : MonoBehaviour, IPointerClickHandler, IBeginDragHandler {
 
 
 
-	private	void	ShowFeedBack( Sprite sprite, float score )
-	{
-		Player.Instance.AddScore( score );
-	}
-
-
 	private	void	OnClickRight()
 	{
-		Sprite	sprite = null;
 		float	score = GameManager.Instance.SpotMaxScore;
 		switch ( m_ClickResult )
 		{
 			case ClickResult.PERFECT:
 				{
-					sprite	= m_Feedbacks.Sprites[0];
-				//	score	= score;
 				}
 			break;
 			case ClickResult.GOOD:
 				{
-					sprite	= m_Feedbacks.Sprites[1];
 					score	= score / GameManager.Instance.GoodDivisor;
 				}
 			break;
 			case ClickResult.BAD:
 				{
-					sprite	= m_Feedbacks.Sprites[2];
 					score	= score / GameManager.Instance.BadDivisor;
 				}
 			break;
 			case ClickResult.MISSED:
 				{
-					sprite	= m_Feedbacks.Sprites[3];
 					score	= 0;
 				}
 			break;
 		}
-		ShowFeedBack( sprite, score );
+		Player.Instance.AddScore( score );
+		HUD.Instance.ShowEffect( m_ClickResult );
 		m_Image.color = Color.yellow;
 		StartCoroutine( SpotFadeOut() );
 	}
@@ -213,6 +184,7 @@ public class Clicker : MonoBehaviour, IPointerClickHandler, IBeginDragHandler {
 		StartCoroutine( SpotFadeOut() );
 	}
 		
+
 
 	private	IEnumerator SpotFadeOut()
 	{
