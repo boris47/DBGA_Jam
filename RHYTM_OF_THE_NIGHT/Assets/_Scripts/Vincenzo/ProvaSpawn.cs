@@ -73,8 +73,8 @@ public class ProvaSpawn : MonoBehaviour {
         float panelXPosition = buttonPanels[counter].transform.position.x;
         float panelYPosition = buttonPanels[counter].transform.position.y;
 
-        float randomX = Random.Range(panelXPosition + rectSpot.rect.width / 2, panelXPosition + buttonPanels[counter].rect.width);
-        float randomY = Random.Range(panelYPosition, buttonPanels[counter].rect.height);
+        float randomX = Random.Range(panelXPosition + rectSpot.rect.width / 2, panelXPosition + buttonPanels[counter].rect.width - rectSpot.rect.width / 2);
+        float randomY = Random.Range(panelYPosition + rectSpot.rect.width / 2, buttonPanels[counter].rect.height - rectSpot.rect.width / 2);
 
         Instantiate(spot, new Vector3(randomX, randomY, 0f), Quaternion.identity, buttonPanels[counter].transform);
 
