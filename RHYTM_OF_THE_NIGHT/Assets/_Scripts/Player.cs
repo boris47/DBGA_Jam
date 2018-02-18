@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
 	[ SerializeField ]
 	private	float	MaxLife			= 10f;
 
-    private float	currentLife		= 0f;
+    private float	currentLife		= 10f;
     private float	currentScore	= 0f;
 
 	private bool    m_IsOK          = true;
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour {
 			return;
 
         this.currentScore += points;
-		HUD.Instance.UpdateScoreBar( this.currentScore / GameManager.Instance.GlobalMaxScore );
+        HUD.Instance.UpdateScoreBar( this.currentScore / GameManager.Instance.MaxScore );
 
     }
 

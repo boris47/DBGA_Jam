@@ -9,8 +9,7 @@ public class ProvaSpawn : MonoBehaviour {
     public GameObject buttonContainer;
     public List<RectTransform> buttonPanels;
 
-    public List<RectTransform> panelsInactive;
-
+    List<RectTransform> panelsInactive;
     RectTransform rectBackground;
     RectTransform rectSpot;
     int counter = -1;
@@ -18,6 +17,7 @@ public class ProvaSpawn : MonoBehaviour {
     private void Awake()
     {
         panelsInactive = new List<RectTransform>();
+
         foreach(RectTransform panel in buttonPanels)
         {
             panelsInactive.Add(panel);
@@ -25,6 +25,7 @@ public class ProvaSpawn : MonoBehaviour {
 
         rectBackground = background.GetComponent<RectTransform>();
         rectSpot = spot.GetComponent<RectTransform>();
+
     }
 
     // Use this for initialization
@@ -67,7 +68,6 @@ public class ProvaSpawn : MonoBehaviour {
 
     public void SpawnSpot()
     {
-
         if (panelsInactive.Count < 3)
         {
             panelsInactive.Clear();

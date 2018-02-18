@@ -27,8 +27,8 @@ public class HUD : MonoBehaviour
 
 	private void Start()
 	{
-		m_BarHP				= transform.GetChild( 0 ).GetComponent<Image>();
-		m_BarScore			= transform.GetChild( 1 ).GetComponent<Image>();
+        m_BarHP				= transform.GetChild( 0 ).GetChild(0).GetComponent<Image>();
+        m_BarScore			= transform.GetChild( 1 ).GetChild(0).GetComponent<Image>();
 
 		m_Effect_Perfect	= transform.GetChild( 2 ).gameObject;
 		m_Effect_Good		= transform.GetChild( 3 ).gameObject;

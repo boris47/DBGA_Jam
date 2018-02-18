@@ -110,7 +110,8 @@ public class Clicker : MonoBehaviour, IPointerClickHandler {
 			break;
 			case ClickResult.MISSED:
 				{
-					score	= 0;
+					//score	= 0;
+                    Player.Instance.LoseLife();
 				}
 			break;
 		}
