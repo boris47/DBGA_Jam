@@ -49,26 +49,26 @@ public class ProvaSpawn : MonoBehaviour {
     }
 
 	
-	GameObject prevObj = null;
+	//GameObject prevObj = null;
     private void OnMark(string markName)
     {
         if (enabled == false)
             return;
 
-		if ( markName == "XXX" )
+		/*if ( markName == "XXX" )
 		{
 			SpawnSpot();
 			return;
-		}
+		}*/
 
-
-		prevObj.GetComponent<Clicker>().Interactable = true;
+        SpawnSpot();
+		//prevObj.GetComponent<Clicker>().Interactable = true;
     }
 
     public void SpawnSpot()
     {
 
-        if (panelsInactive.Count < 2)
+        if (panelsInactive.Count < 3)
         {
             panelsInactive.Clear();
             foreach (RectTransform panel in buttonPanels)
@@ -85,7 +85,8 @@ public class ProvaSpawn : MonoBehaviour {
         float randomX = Random.Range(panelXPosition + rectSpot.rect.width / 2, panelXPosition + panelsInactive[counter].rect.width - rectSpot.rect.width / 2);
         float randomY = Random.Range(panelYPosition + rectSpot.rect.width / 2, panelYPosition + panelsInactive[counter].rect.height - rectSpot.rect.width / 2);
 
-        prevObj = Instantiate(spot, new Vector3(randomX, randomY, 0f), Quaternion.identity, panelsInactive[counter].transform);
+        //prevObj = Instantiate(spot, new Vector3(randomX, randomY, 0f), Quaternion.identity, panelsInactive[counter].transform);
+        Instantiate(spot, new Vector3(randomX, randomY, 0f), Quaternion.identity, panelsInactive[counter].transform);
 
         panelsInactive.Remove(panelsInactive[counter]);
 
